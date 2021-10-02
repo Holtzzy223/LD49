@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ef5ba01a365fc8488f754d99b1df800, type: 3}
   m_Name: Card_
   m_EditorClassIdentifier: 
-  cardName: TestTest
+  cardName: Elon's Might
   cardType: 2
   cardPrice: 5
   cardAP: 2
-  cardFlavor: Testing Testing Attention Please
-  cardDesc: ' X : never gonna give you up never gonna let you down '
+  cardFlavor: AI is a MENACE
+  cardDesc: ' X : "bzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzt"'
   cardStrength: 3
   cardArmor: 5
   cardDrawAmt: 4

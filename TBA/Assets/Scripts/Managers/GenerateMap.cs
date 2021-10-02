@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class GenerateMap : MonoBehaviour
 {
+	/*
 	public int mapHeight = 0;
 	public int mapWidth =0;
 	public Vector2 genPos = new Vector2(0,0);
@@ -11,7 +12,10 @@ public class GenerateMap : MonoBehaviour
 	public int  ranNode;
 	public enum RoomType
 	{ 
-		
+		REST,
+		COMBAT,
+		TREASURE,
+		SHOP
 	};
 	private int roomsGenerated;
 	public int RoomMax;
@@ -25,7 +29,7 @@ public class GenerateMap : MonoBehaviour
 			do
 			{
 				ranNode = Random.Range(0, 3);
-				roomType = Random.Range(0, 3);// Type of room to spawn
+				var roomType = RoomType.COMBAT;
 				roomsGenerated++;
 
 				if (roomsGenerated >= RoomMax)
@@ -166,5 +170,5 @@ public class GenerateMap : MonoBehaviour
 			while (roomsGenerated >= RoomMax);
 		}
 
-	}
+	}*/
 }
