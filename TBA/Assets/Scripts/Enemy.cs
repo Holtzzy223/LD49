@@ -27,7 +27,7 @@ public class Enemy : MonoBehaviour
 
     [Header("Intents Display")]
 
-    public Image inentImage;
+    public Image intentImage;
     public TextMeshProUGUI intentAmtText;
     public TextMeshProUGUI armorAmtDisplay;
 
@@ -92,4 +92,46 @@ public class Enemy : MonoBehaviour
             currentArmorDisp.SetActive(false);
         }
     }
+
+    public void DealDamage(int damage, CombatManager target)
+    {
+        target.TakeDamage(damage);
+    }
+
+    public void TakeDamage(int damage)
+    {
+        damage -= Mathf.RoundToInt(armor * 0.5f);
+        if (damage > 0)
+        {
+            currentHealth -= damage;
+        }
+        HandleHealth();
+    }
+
+    public void Heal(int amtToHeal)
+    {
+        currentHealth += amtToHeal;
+        HandleHealth();
+    }
+
+    public void BuffStat(int statToBuff, int buffAmt, Enemy enemy = null)
+    {
+
+        statToBuff += buffAmt;
+        Mathf.Clamp(statToBuff, 0, 999);
+        UIManager.instance.UpdateDisplay();
+    }
+
+    public void DeBuff(int statToDebuff, int debuffAmt, Card card = null)
+    {
+        statToDebuff -= debuffAmt;
+        Mathf.Clamp(statToDebuff, 0, 999);
+        UIManager.instance.UpdateDisplay();
+    }
+
+    public void OnTurnEnd()
+    {
+        immediateIntentList.Clear();
+    }
+
 }
