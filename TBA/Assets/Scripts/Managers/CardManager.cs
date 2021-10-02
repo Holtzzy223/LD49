@@ -67,6 +67,8 @@ public class CardManager : MonoBehaviour
             newCard.name = newCard.GetComponent<Card>().cardData.cardName;
         }
         UpdateDisplay();
+        EnemyManager.instance.SpawnEnemy();
+        InitialDraw();
     }
     public void UpdateDisplay()
     {
@@ -90,8 +92,9 @@ public class CardManager : MonoBehaviour
     }
     public void InitialDraw() 
     {
+        CombatManager.instance.currentEnemy.OnTurnEnd();
+       
         currentTurn = CurrentTurn.PLAYER;
-
         endTurnButton.interactable = true;
         currentActions = actionsAtStart;
 
@@ -154,6 +157,14 @@ public class CardManager : MonoBehaviour
         }
     }
 
+    public void DiscardAllCards()
+    {
+        for (int i = 0; i < handConatiner.childCount; i++)
+        {
+            DiscardCard(handConatiner.GetChild(i).GetComponent<Card>());
+        }
+    }
+        
     public void ShuffleDeck()
     {
         for(int i = discardContainer.childCount - 1; i >= 0 ; i--)
@@ -176,5 +187,23 @@ public class CardManager : MonoBehaviour
 
         return currentActions > 0 && card.cardActions <= currentActions;
         
+    }
+    public void StartNewTurn() 
+    {
+        CombatManager.instance.currentArmor = 0;
+        isStartingDraw = true;
+        InitialDraw();
+    }
+
+    public void EndTurn()
+    {
+        DiscardAllCards();
+        endTurnButton.interactable = false;
+        currentTurn = CurrentTurn.ENEMY;
+        CombatManager.instance.currentEnemy.armor = 0;
+
+        StartCoroutine(EnemyManager.instance.TakeTurn(CombatManager.instance.currentEnemy));
+        UpdateDisplay();
+
     }
 }

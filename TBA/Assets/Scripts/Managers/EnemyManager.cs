@@ -22,32 +22,33 @@ public class EnemyManager : MonoBehaviour
             return;
         }
         instance = this;
-    }
 
-    private void Start()
-    {
-        for (int i = 0; i < enemyIndexData.Count;i++)
+        for (int i = 0; i < enemyIndexData.Count; i++)
         {
             enemyIndex.Add(i);
         }
 
-        for (int i = 0; i < enemyIndex.Count;i++)
+        for (int i = 0; i < enemyIndex.Count; i++)
         {
-            enemyDictionary.Add(i,enemyIndexData[i]);
+            enemyDictionary.Add(i, enemyIndexData[i]);
         }
+    }
 
-        int range = Random.Range(0,enemyDictionary.Count);
+    private void Start()
+    {
 
-        SpawnEnemy(enemyDictionary[range]);
+
+       
 
 
     }
 
-    public void SpawnEnemy(EnemyData enemyData)
+    public void SpawnEnemy()
     {
+        int rand = Random.Range(0, enemyDictionary.Count);
         GameObject enemyToSpawn = Instantiate(enemyPrefab, spawnPostion);
         Enemy enemy = enemyToSpawn.GetComponent<Enemy>();
-        enemy.enemyData = enemyData;
+        enemy.enemyData = enemyDictionary[rand];
         _CombatManInst.currentEnemy = enemy;
 
     }
@@ -63,6 +64,7 @@ public class EnemyManager : MonoBehaviour
         for (int i = 0; i < intent.intent.Length; i++)
         {
             enemy.intentList.Add(intent);
+           
         }
 
         switch (enemy.intentList[0].intent[0])
@@ -113,7 +115,7 @@ public class EnemyManager : MonoBehaviour
                     enemy.DeBuff(GetStat(enemy), GetBuffAmount());
                     break;
                 case EnemyIntentType.FLEE:
-                   
+                    GameManager.instance.ChangeState(GameState.ENDMATCH);
                     break;
             }
         }
@@ -130,4 +132,13 @@ public class EnemyManager : MonoBehaviour
 
         return buffAmt;
     }
+
+    public void EndTurn()
+    {
+        //todo:remove player effects at emd of turn
+
+        CardManager.instance.StartNewTurn();
+
+    }
+
 }

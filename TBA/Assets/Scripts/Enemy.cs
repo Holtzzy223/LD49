@@ -134,6 +134,8 @@ public class Enemy : MonoBehaviour
     public void OnTurnEnd()
     {
         intentList.Clear();
+
+        EnemyManager.instance.NextIntent(this);
     }
 
 }

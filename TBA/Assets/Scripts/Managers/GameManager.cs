@@ -28,7 +28,7 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(this.gameObject);
     }
 
-    public static void ChangeState(GameState newState)
+    public void ChangeState(GameState newState)
     {
         if (instance.currentState == newState)
         {
@@ -47,6 +47,8 @@ public class GameManager : MonoBehaviour
                 break;
             case GameState.COMBAT:
                 //Logic goes here
+                break;
+            case GameState.ENDMATCH:
                 break;
 
         }

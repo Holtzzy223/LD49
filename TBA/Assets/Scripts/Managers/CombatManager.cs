@@ -43,8 +43,12 @@ public class CombatManager : MonoBehaviour
     }
 
 
-    public void DealDamage(int damage, Card card)
+    public void DealDamage(int damage,Enemy enemy,Card card)
     {
+        if (enemy != null)
+        {
+            enemy.TakeDamage(damage);
+        }
         DiscardCard(card);
     }
 
