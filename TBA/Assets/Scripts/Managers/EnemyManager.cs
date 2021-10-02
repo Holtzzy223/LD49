@@ -51,4 +51,83 @@ public class EnemyManager : MonoBehaviour
         _CombatManInst.currentEnemy = enemy;
 
     }
+
+    public void NextIntent(Enemy enemy)
+    {
+        int rand = Random.Range(0, enemy.enemyData.enemyIntents.Length);
+
+        enemy.intentList.Clear();
+        EnemyData.EnemyIntent intent = enemy.enemyData.enemyIntents[rand];
+
+        //loop through and add
+        for (int i = 0; i < intent.intent.Length; i++)
+        {
+            enemy.intentList.Add(intent);
+        }
+
+        switch (enemy.intentList[0].intent[0])
+        {
+            case EnemyIntentType.ATTACK:
+                enemy.intentImage.sprite = enemy.sprIntentAttack;
+                break;
+            case EnemyIntentType.ARMOR:
+                enemy.intentImage.sprite = enemy.sprIntentArmor;
+               
+                break;
+            case EnemyIntentType.ABILITY:
+                enemy.intentImage.sprite = enemy.sprIntentAbility;
+                break;
+            case EnemyIntentType.BUFF:
+                enemy.intentImage.sprite = enemy.sprIntentBuff;
+                break;
+            case EnemyIntentType.DEBUFF:
+                enemy.intentImage.sprite = enemy.sprIntentDebuff;
+                break;
+            case EnemyIntentType.FLEE:
+                enemy.intentImage.sprite = enemy.sprIntentFlee;
+                break;
+        }
+    }
+    public IEnumerator TakeTurn(Enemy enemy)
+    {
+        yield return new WaitForSeconds(0.5f);
+
+        for (int i = 0; i < enemy.intentList.Count; i++)
+        {
+            switch (enemy.intentList[i].intent[i])
+            {
+                case EnemyIntentType.ATTACK:
+                    CombatManager.instance.TakeDamage(enemy.damage); 
+                    break;
+                case EnemyIntentType.ARMOR:
+                    enemy.BuffStat(enemy.armor, GetBuffAmount()); ;
+
+                    break;
+                case EnemyIntentType.ABILITY:
+                    //unstable shit
+                    break;
+                case EnemyIntentType.BUFF:
+                    enemy.BuffStat(GetStat(enemy), GetBuffAmount());
+                    break;
+                case EnemyIntentType.DEBUFF:
+                    enemy.DeBuff(GetStat(enemy), GetBuffAmount());
+                    break;
+                case EnemyIntentType.FLEE:
+                   
+                    break;
+            }
+        }
+
+    }
+    private int GetStat(Enemy enemy)
+    {
+        int[] enemyStats = new int[] { enemy.armor, enemy.damage, enemy.maxHealth };
+        return enemyStats[Random.Range(0, enemyStats.Length)];
+    }
+    private int GetBuffAmount()
+    {
+        int buffAmt = Random.Range(0,10);
+
+        return buffAmt;
+    }
 }

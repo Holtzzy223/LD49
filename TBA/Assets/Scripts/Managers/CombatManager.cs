@@ -8,7 +8,7 @@ public class CombatManager : MonoBehaviour
 {
     public static CombatManager instance;
 
-    public Enemy currentEnemy
+    public Enemy currentEnemy;
     public int initialHealth = 25;
     public int maxHealth;
     public int currentArmor = 0;
@@ -67,6 +67,7 @@ public class CombatManager : MonoBehaviour
     public void BuffStat(int statToBuff,int buffAmt, Card card = null)
     {
         statToBuff += buffAmt;
+        Mathf.Clamp(statToBuff,0,999);
         DiscardCard(card);
         UIManager.instance.UpdateDisplay();
     }
@@ -74,6 +75,7 @@ public class CombatManager : MonoBehaviour
     public void DeBuff(int statToDebuff, int debuffAmt, Card card = null)
     {
         statToDebuff -= debuffAmt;
+        Mathf.Clamp(statToDebuff,0,999);
         DiscardCard(card);
         UIManager.instance.UpdateDisplay();
     }

@@ -32,11 +32,13 @@ public class Enemy : MonoBehaviour
     public TextMeshProUGUI armorAmtDisplay;
 
     public Sprite sprIntentAttack;
-    public Sprite sprIntentDefense;
+    public Sprite sprIntentArmor;
+    public Sprite sprIntentAbility;
     public Sprite sprIntentBuff;
-    public Sprite sprIntentDisable;
+    public Sprite sprIntentDebuff;
+    public Sprite sprIntentFlee;
 
-    public List<EnemyData.EnemyIntent> immediateIntentList = new List<EnemyData.EnemyIntent>();
+    public List<EnemyData.EnemyIntent> intentList = new List<EnemyData.EnemyIntent>();
     public int immediateIntentStrength;
 
 
@@ -131,7 +133,7 @@ public class Enemy : MonoBehaviour
 
     public void OnTurnEnd()
     {
-        immediateIntentList.Clear();
+        intentList.Clear();
     }
 
 }
