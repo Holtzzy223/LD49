@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ef5ba01a365fc8488f754d99b1df800, type: 3}
+  m_Name: Card_
+  m_EditorClassIdentifier: 
+  cardName: TestTest
+  cardType: 2
+  cardPrice: 5
+  cardAP: 2
+  cardFlavor: Testing Testing Attention Please
+  cardDesc: ' X : never gonna give you up never gonna let you down '
+  cardStrength: 3
+  cardArmor: 5
+  cardDrawAmt: 4
+  cardBlock: 5
