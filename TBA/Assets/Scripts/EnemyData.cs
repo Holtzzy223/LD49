@@ -13,9 +13,9 @@ public class EnemyData : ScriptableObject
     public EnemyIntent[] enemyIntents;
 
     [System.Serializable]
-    public struct EnemyIntnet
+    public struct EnemyIntent
     {
-        public EnemyIntnetType[] intent;
+        public EnemyIntentType[] intent;
         public int amt;
     }
 
