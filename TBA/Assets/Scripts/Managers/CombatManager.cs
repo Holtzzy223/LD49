@@ -8,6 +8,7 @@ public class CombatManager : MonoBehaviour
 {
     public static CombatManager instance;
 
+    public Enemy currentEnemy
     public int initialHealth = 25;
     public int maxHealth;
     public int currentArmor = 0;

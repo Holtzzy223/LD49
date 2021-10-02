@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemyManager : MonoBehaviour
 {
     public static EnemyManager instance;
+    public static CombatManager _CombatManInst = CombatManager.instance;
     public Transform spawnPostion;
     public GameObject enemyPrefab;
     [Header("Enemy Data")]
@@ -45,6 +46,9 @@ public class EnemyManager : MonoBehaviour
     public void SpawnEnemy(EnemyData enemyData)
     {
         GameObject enemyToSpawn = Instantiate(enemyPrefab, spawnPostion);
-        enemyToSpawn.GetComponent<Enemy>().enemyData = enemyData;
+        Enemy enemy = enemyToSpawn.GetComponent<Enemy>();
+        enemy.enemyData = enemyData;
+        _CombatManInst.currentEnemy = enemy;
+
     }
 }
