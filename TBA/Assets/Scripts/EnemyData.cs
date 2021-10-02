@@ -8,8 +8,9 @@ public class EnemyData : ScriptableObject
 {
     public EnemyType enemyType;
     public string enemyName;
-    public int maxHP;
+    public int maxHealth;
     public int damage;
+    public int armor;
     public EnemyIntent[] enemyIntents;
 
     [System.Serializable]

@@ -17,6 +17,7 @@ public class Enemy : MonoBehaviour
     public int maxHealth;
 
     public Slider healthSlider;
+    public Image healthSliderFill;
     public Color armoredColor;
 
     public GameObject currentArmorDisp;
@@ -69,8 +70,26 @@ public class Enemy : MonoBehaviour
     }
 
     private void HandleHealth()
-    { 
-        
-    }
+    {
+        currentHealth = Mathf.Clamp(currentHealth,0,maxHealth);
+        if (currentHealth <= 0)
+        {
+            //GameOver Display
+            Destroy(this.gameObject);
+        }
 
+        healthSlider.value = currentHealth;
+        healthText.text = string.Format("{0}/{1}", currentHealth,maxHealth);
+
+        ArmorCheck();
+    }
+    public void ArmorCheck()
+    {
+        armor = Mathf.Clamp(armor, 0, 999);
+        if (armor <= 0)
+        {
+            healthSliderFill.color = Color.red;
+            currentArmorDisp.SetActive(false);
+        }
+    }
 }
