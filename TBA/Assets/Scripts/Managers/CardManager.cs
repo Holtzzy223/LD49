@@ -11,7 +11,7 @@ public class CardManager : MonoBehaviour
     public static CardManager instance;
     #region Variables
     public CurrentTurn currentTurn;
-
+    public int stableTurnsLeft = 10;
     public GameObject newCardPrefab;
 
     public Transform drawContainer; //Cards Draw Area
@@ -39,6 +39,7 @@ public class CardManager : MonoBehaviour
     public TextMeshProUGUI discardText;
 
     public Button endTurnButton;
+
     #endregion
 
     private void Awake()
@@ -72,8 +73,8 @@ public class CardManager : MonoBehaviour
     }
     public void UpdateDisplay()
     {
-        drawText.text = drawContainer.childCount.ToString();
-        discardText.text = discardContainer.childCount.ToString();
+       // drawText.text = drawContainer.childCount.ToString();
+        //discardText.text = discardContainer.childCount.ToString();
 
         for (int i = 0; i < handConatiner.childCount; i++)
         {
@@ -92,7 +93,7 @@ public class CardManager : MonoBehaviour
     }
     public void InitialDraw() 
     {
-        CombatManager.instance.currentEnemy.OnTurnEnd();
+        //CombatManager.instance.currentEnemy.OnTurnEnd();
        
         currentTurn = CurrentTurn.PLAYER;
         endTurnButton.interactable = true;
