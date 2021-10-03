@@ -22,7 +22,7 @@ public class Enchantment : MonoBehaviour
 
     private void Start()
     {
-
+        LoadEnchantmentData();
     }
 
     private void LoadEnchantmentData()

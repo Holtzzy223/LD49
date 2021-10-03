@@ -37,6 +37,8 @@ public class CombatManager : MonoBehaviour
         currentHealth = maxHealth;
 
         UIManager.instance.UpdateDisplay();
+        EnchantmentManager.instance.AddEnchantment(EnchantmentTypes.BALANCE_BEAM);
+        StartCoroutine(EnchantmentManager.instance.CheckForStartEnchantments());
     }
     private void UpdateHealthDisplay()
     {

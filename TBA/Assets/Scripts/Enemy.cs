@@ -48,13 +48,15 @@ public class Enemy : MonoBehaviour
 
     public List<StatusType> currentStatuses = new List<StatusType>();
     public static StatusManager _statusManagerInst;
-
+    public Transform enemyStatusContainer;
     private void Awake()
     {
         _statusManagerInst = StatusManager.instance;
     }
     public void Start()
     {
+        StatusManager.instance.enemyStatusContainer = enemyStatusContainer;
+        CollectEnemyData();
     }
 
     private void CollectEnemyData()

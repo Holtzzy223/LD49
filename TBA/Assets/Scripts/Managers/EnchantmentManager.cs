@@ -67,14 +67,31 @@ public class EnchantmentManager : MonoBehaviour
     }
     public void ActivateTrinket(EnchantmentTypes type)
     {
+        EnchantmentData enchantmentData = GetEnchantmentFromType(type);
         //allenchantments
+
+        for (int i = 0; i < enchantmentData.allEnchantmentEffects.Length;i++)
         switch (type)
         {
             case EnchantmentTypes.BALANCE_BEAM:
-                combatManInst.AddStatus(StatusType.EQUILIBRIUM, 1);
+                combatManInst.AddStatus(enchantmentData.allEnchantmentEffects[i].effect, 1);
                 break;
             case EnchantmentTypes.SCALE:
                 break;
         }
     }
+
+    public IEnumerator CheckForStartEnchantments()
+    {
+        yield return new WaitForSeconds(0.25f);
+        for (int i = 9; i < startCombatEnchants.Count; i++)
+        {
+            if (HasEnchantment(startCombatEnchants[i]))
+            {
+                ActivateTrinket(startCombatEnchants[i]);
+            }
+            yield return null;
+        }
+    }
 }
+  
