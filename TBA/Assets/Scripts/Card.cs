@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
+
 using TMPro;
 using System;
-
-public class Card : MonoBehaviour
+public class Card :MonoBehaviour, IPointerClickHandler
 {
+    
     public CardData cardData;
 
     [Header("Card Description")]
@@ -30,7 +32,7 @@ public class Card : MonoBehaviour
     {
         CollectCardData();
     }
-
+   
     private void CollectCardData()
     {
         if (cardData == null)
@@ -132,4 +134,8 @@ public class Card : MonoBehaviour
         }
     }
 
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        UseCard();
+    }
 }

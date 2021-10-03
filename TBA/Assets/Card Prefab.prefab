@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 5001001598965068854}
   - component: {fileID: 5001001598965068853}
   m_Layer: 0
-  m_Name: cardTemplate_red
+  m_Name: Card Prefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -195,10 +195,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardData: {fileID: 11400000, guid: 6d630231e7b7d5e4cb0c8cfad6937e43, type: 2}
   cardNameText: {fileID: 5001001600066105106}
-  cardFlavorText: {fileID: 0}
+  cardFlavorText: {fileID: 5001001600095292113}
   cardDescText: {fileID: 5001001599343544767}
   cardTypeText: {fileID: 5001001599066452228}
-  cardActionsText: {fileID: 0}
+  cardActionsText: {fileID: 5001001599022215135}
   cardName: 
   cardDesc: 
   cardFlavor: 

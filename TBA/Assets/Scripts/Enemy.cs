@@ -76,8 +76,9 @@ public class Enemy : MonoBehaviour
         armor = enemyData.armor;
 
         healthSlider.maxValue = maxHealth;
-        enemyNameText.text = enemyName.ToUpper();
+      //  enemyNameText.text = enemyName.ToUpper();
         CurrentHealth = maxHealth;
+        HandleHealth();
     }
 
     private void HandleHealth()
@@ -90,7 +91,7 @@ public class Enemy : MonoBehaviour
         }
 
         healthSlider.value = currentHealth;
-        healthText.text = string.Format("{0}/{1}", currentHealth,maxHealth);
+        //healthText.text = string.Format("{0}/{1}", currentHealth,maxHealth);
 
         ArmorCheck();
     }

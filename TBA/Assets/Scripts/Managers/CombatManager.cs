@@ -22,8 +22,7 @@ public class CombatManager : MonoBehaviour
     public List<StatusType> currentStatuses = new List<StatusType>();
     private void Awake()
     {
-        _cardManagerInst = CardManager.instance;
-        _statusManagerInst = StatusManager.instance;
+
         if (instance != null & instance != this)
         {
             Destroy(this.gameObject);
@@ -33,6 +32,8 @@ public class CombatManager : MonoBehaviour
     }
     private void Start()
     {
+        _cardManagerInst = CardManager.instance;
+        _statusManagerInst = StatusManager.instance;
         maxHealth = initialHealth;
         currentHealth = maxHealth;
 

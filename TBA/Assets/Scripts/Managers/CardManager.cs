@@ -76,7 +76,7 @@ public class CardManager : MonoBehaviour
        // drawText.text = drawContainer.childCount.ToString();
         //discardText.text = discardContainer.childCount.ToString();
 
-        for (int i = 0; i < handConatiner.childCount; i++)
+        for (int i = 0; i < handConatiner.childCount-1; i++)
         {
             //check if we can use cards
             Card card = handConatiner.transform.GetChild(i).GetComponent<Card>();
@@ -93,7 +93,7 @@ public class CardManager : MonoBehaviour
     }
     public void InitialDraw() 
     {
-        //CombatManager.instance.currentEnemy.OnTurnEnd();
+        CombatManager.instance.currentEnemy.OnTurnEnd();
        
         currentTurn = CurrentTurn.PLAYER;
         endTurnButton.interactable = true;
@@ -116,7 +116,7 @@ public class CardManager : MonoBehaviour
         if (drawContainer.childCount > 0)
         {
             int rand = Random.Range(0, drawContainer.childCount);
-            drawContainer.GetChild(rand).transform.parent = handConatiner;
+            drawContainer.GetChild(rand).transform.SetParent(handConatiner,false);
         }
         else if (drawContainer.childCount<=0)
         {

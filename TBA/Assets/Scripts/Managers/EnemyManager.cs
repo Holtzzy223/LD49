@@ -15,7 +15,7 @@ public class EnemyManager : MonoBehaviour
     public Dictionary<int, EnemyData> enemyDictionary = new Dictionary<int, EnemyData>();
     private void Awake()
     {
-        _CombatManInst = CombatManager.instance;
+        
         if (instance != null & instance != this)
         {
             Destroy(this.gameObject);
@@ -36,9 +36,9 @@ public class EnemyManager : MonoBehaviour
 
     private void Start()
     {
+        _CombatManInst = CombatManager.instance;
 
 
-       
 
 
     }
@@ -69,25 +69,25 @@ public class EnemyManager : MonoBehaviour
 
         switch (enemy.intentList[0].intent[0])
         {
-            case EnemyIntentType.ATTACK:
-                enemy.intentImage.sprite = enemy.sprIntentAttack;
-                break;
-            case EnemyIntentType.ARMOR:
-                enemy.intentImage.sprite = enemy.sprIntentArmor;
-               
-                break;
-            case EnemyIntentType.ABILITY:
-                enemy.intentImage.sprite = enemy.sprIntentAbility;
-                break;
-            case EnemyIntentType.BUFF:
-                enemy.intentImage.sprite = enemy.sprIntentBuff;
-                break;
-            case EnemyIntentType.DEBUFF:
-                enemy.intentImage.sprite = enemy.sprIntentDebuff;
-                break;
-            case EnemyIntentType.FLEE:
-                enemy.intentImage.sprite = enemy.sprIntentFlee;
-                break;
+          //  case EnemyIntentType.ATTACK:
+          //      enemy.intentImage.sprite = enemy.sprIntentAttack;
+          //      break;
+          //  case EnemyIntentType.ARMOR:
+          //      enemy.intentImage.sprite = enemy.sprIntentArmor;
+          //     
+          //      break;
+          //  case EnemyIntentType.ABILITY:
+          //      enemy.intentImage.sprite = enemy.sprIntentAbility;
+          //      break;
+          //  case EnemyIntentType.BUFF:
+          //      enemy.intentImage.sprite = enemy.sprIntentBuff;
+          //      break;
+          //  case EnemyIntentType.DEBUFF:
+          //      enemy.intentImage.sprite = enemy.sprIntentDebuff;
+          //      break;
+          //  case EnemyIntentType.FLEE:
+          //      enemy.intentImage.sprite = enemy.sprIntentFlee;
+          //      break;
         }
     }
     public IEnumerator TakeTurn(Enemy enemy)

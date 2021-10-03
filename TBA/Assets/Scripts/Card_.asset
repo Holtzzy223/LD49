@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Card_
   m_EditorClassIdentifier: 
   cardName: Elon's Might
-  cardType: 2
+  cardType: 1
   cardPrice: 5
   cardAP: 2
   cardFlavor: AI is a MENACE
