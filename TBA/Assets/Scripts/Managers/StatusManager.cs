@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class StatusManager : MonoBehaviour
 {
-    public StatusManager instance;
+    public static  StatusManager instance;
     public StatusData equilibrium;
     public StatusData unstable;
     public StatusData disorder;
 
-    public Dictionary<Status, StatusData> statusDict = new Dictionary<Status, StatusData>();
+    public Dictionary<StatusType, StatusData> statusDict = new Dictionary<StatusType, StatusData>();
 
     public GameObject playerStatusPrefab;
 
@@ -31,17 +31,17 @@ public class StatusManager : MonoBehaviour
     private void Start()
     {
         statusDict.Clear();
-        statusDict.Add(Status.DISORDER,disorder);
-        statusDict.Add(Status.EQUILIBRIUM,equilibrium);
-        statusDict.Add(Status.UNSTABLE,unstable);
+        statusDict.Add(StatusType.DISORDER,disorder);
+        statusDict.Add(StatusType.EQUILIBRIUM,equilibrium);
+        statusDict.Add(StatusType.UNSTABLE,unstable);
     }
 
-    public StatusData GetStatus(Status status)
+    public StatusData GetStatus(StatusType status)
     {
         return statusDict[status];
     }
 
-    public void CreateStatus(Status status, bool isEnemy)
+    public void CreateStatus(StatusType status, bool isEnemy)
     {
         if (isEnemy)
         {
@@ -62,5 +62,16 @@ public class StatusManager : MonoBehaviour
     public void UpdateStatusUI()
     {
         
+    }
+
+    public void AddStatus(CurrentTurn effected, StatusType status)
+    {
+        switch (effected)
+        {
+            case CurrentTurn.PLAYER:
+                break;
+            case CurrentTurn.ENEMY:
+                break;
+        }
     }
 }

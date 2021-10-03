@@ -15,7 +15,7 @@ public class EnchantmentData : ScriptableObject
 
     public struct EnchantmentEffects
     {
-        public Status effect;
+        public StatusType effect;
         public float effectAmt;
 
     }

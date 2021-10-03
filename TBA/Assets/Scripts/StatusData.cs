@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName ="Status_", menuName = "New Status")]
 public class StatusData : ScriptableObject
 {
-    public Status statusType;
+    public StatusType statusType;
     public string statusName;
     public float statusStrength;
     public Sprite statusSprite;

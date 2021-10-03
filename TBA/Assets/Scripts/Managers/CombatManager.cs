@@ -17,10 +17,13 @@ public class CombatManager : MonoBehaviour
     private int currentHealth;
     public int CurrentHealth { get { return currentHealth; } set { currentHealth = value;UpdateHealthDisplay(); } }
     public CardManager _cardManagerInst;
+    public StatusManager _statusManagerInst;
 
+    public List<StatusType> currentStatuses = new List<StatusType>();
     private void Awake()
     {
         _cardManagerInst = CardManager.instance;
+        _statusManagerInst = StatusManager.instance;
         if (instance != null & instance != this)
         {
             Destroy(this.gameObject);
@@ -67,7 +70,11 @@ public class CombatManager : MonoBehaviour
         currentHealth += amtToHeal;
         UpdateHealthDisplay();
     }
-
+    public void SetStat(int statToBuff, int amt)
+    {
+        statToBuff = amt;
+        Mathf.Clamp(statToBuff, 0, 999);
+    }
     public void BuffStat(int statToBuff,int buffAmt, Card card = null)
     {
         statToBuff += buffAmt;
@@ -91,4 +98,26 @@ public class CombatManager : MonoBehaviour
         }
         _cardManagerInst.UpdateDisplay();
     }
+
+    public void AddStatus(StatusType status, int duration)
+    {
+        if (!currentStatuses.Contains(status))
+        {
+            _statusManagerInst.AddStatus(CurrentTurn.PLAYER, status);
+            _statusManagerInst.CreateStatus(status, false);
+
+        }
+        else 
+        {
+            for(int i = 0; i < currentStatuses.Count;i++)
+            {
+                if (currentStatuses[i]== status)
+                { 
+                  //add duration
+                }
+            }
+        }
+        _statusManagerInst.UpdateStatusUI();
+    }
+
 }

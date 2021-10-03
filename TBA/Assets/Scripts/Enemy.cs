@@ -46,6 +46,13 @@ public class Enemy : MonoBehaviour
     private int currentHealth;
     public int CurrentHealth { get { return currentHealth; } set { currentHealth = value; } }
 
+    public List<StatusType> currentStatuses = new List<StatusType>();
+    public static StatusManager _statusManagerInst;
+
+    private void Awake()
+    {
+        _statusManagerInst = StatusManager.instance;
+    }
     public void Start()
     {
     }
@@ -136,6 +143,27 @@ public class Enemy : MonoBehaviour
         intentList.Clear();
 
         EnemyManager.instance.NextIntent(this);
+    }
+
+    public void AddStatus(StatusType status, int duration)
+    {
+        if (!currentStatuses.Contains(status))
+        {
+            _statusManagerInst.AddStatus(CurrentTurn.ENEMY, status);
+            _statusManagerInst.CreateStatus(status, false);
+
+        }
+        else
+        {
+            for (int i = 0; i < currentStatuses.Count; i++)
+            {
+                if (currentStatuses[i] == status)
+                {
+                    //add duration
+                }
+            }
+        }
+        _statusManagerInst.UpdateStatusUI();
     }
 
 }

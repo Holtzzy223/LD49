@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyManager : MonoBehaviour
 {
     public static EnemyManager instance;
-    public static CombatManager _CombatManInst = CombatManager.instance;
+    public static CombatManager _CombatManInst;
     public Transform spawnPostion;
     public GameObject enemyPrefab;
     [Header("Enemy Data")]
@@ -15,7 +15,7 @@ public class EnemyManager : MonoBehaviour
     public Dictionary<int, EnemyData> enemyDictionary = new Dictionary<int, EnemyData>();
     private void Awake()
     {
-        
+        _CombatManInst = CombatManager.instance;
         if (instance != null & instance != this)
         {
             Destroy(this.gameObject);
