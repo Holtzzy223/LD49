@@ -106,6 +106,8 @@ public class CardManager : MonoBehaviour
         {
             isStartingDraw = false;
         }
+        UIManager.instance.UpdateDisplay();
+        UpdateDisplay();
     }
 
     private void DrawCard()
@@ -124,6 +126,7 @@ public class CardManager : MonoBehaviour
         {
             InitialDraw();
         }
+
     }
 
     public IEnumerator DrawCards(Card card)
