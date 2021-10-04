@@ -11,7 +11,7 @@ public class UIManager : MonoBehaviour
     public static UIManager instance;
 
     public Slider healthSlider;
-    public TextMeshProUGUI armorText;
+    public Image armorImage;
     public TextMeshProUGUI actionsText;
 
     private void Awake()
@@ -36,7 +36,7 @@ public class UIManager : MonoBehaviour
        var _cmInst = CombatManager.instance;
        healthSlider.value = _cmInst.CurrentHealth;
       // armorText.text = string.Format("Armor: {0}",_cmInst.currentArmor);
-      // actionsText.text = string.Format("Acions: <color=#>{0}</color><color=#>{1}</color>",CardManager.instance.actionsAtStart,CardManager.instance.currentActions);
+      actionsText.text = string.Format("Actions: <color=#e6d64c>{1}</color>/<color=#e6d64c>{0}</color>", CardManager.instance.actionsAtStart,CardManager.instance.currentActions);
     
     }
 
