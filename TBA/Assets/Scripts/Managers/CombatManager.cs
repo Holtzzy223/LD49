@@ -76,7 +76,7 @@ public class CombatManager : MonoBehaviour
     public void SetStat(int statToBuff, int amt)
     {
         statToBuff = amt;
-        Mathf.Clamp(statToBuff, 0, 999);
+        _ = Mathf.Clamp(statToBuff, 0, 999);
     }
     public void BuffStat(int statToBuff,int buffAmt, Card card = null)
     {

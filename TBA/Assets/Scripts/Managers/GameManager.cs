@@ -51,6 +51,8 @@ public class GameManager : MonoBehaviour
                 break;
             case GameState.ENDMATCH:
                 //Logic Goes here
+                //pop end match UI
+                UIManager.instance.rewardContainer.SetActive(true);
                 break;
 
         }

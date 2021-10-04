@@ -211,4 +211,30 @@ public class CardManager : MonoBehaviour
         UpdateDisplay();
 
     }
+    public IEnumerator DrawRewardCards(int rewardAmt)
+    {
+
+
+        for (int i = 0; i < rewardAmt; i++)
+        {
+            DrawRewardCard();
+            Debug.Log("Reward Card Drawn");
+            yield return new WaitForSeconds(0.02f);
+        }
+        yield return new WaitForEndOfFrame();
+
+    }
+
+    private void DrawRewardCard()
+    {
+        if (drawContainer.childCount > 0)
+        {
+            int rand = Random.Range(0, drawContainer.childCount);
+            drawContainer.GetChild(rand).transform.SetParent(handConatiner, false);
+        }
+
+
+ 
+
+    }
 }

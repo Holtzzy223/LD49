@@ -13,7 +13,7 @@ public class UIManager : MonoBehaviour
     public Slider healthSlider;
     public Image armorImage;
     public TextMeshProUGUI actionsText;
-
+    public GameObject rewardContainer;
     private void Awake()
     {
         if (instance != null & instance != this)
