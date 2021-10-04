@@ -76,19 +76,19 @@ public class CardManager : MonoBehaviour
        // drawText.text = drawContainer.childCount.ToString();
         //discardText.text = discardContainer.childCount.ToString();
 
-        //for (int i = 0; i < handConatiner.childCount; i++)
+        for (int i = 0; i < handConatiner.childCount; i++)
         {
-            //check if we can use cards
-           // Card card = handConatiner.transform.GetChild(i).GetComponent<Card>();
-           // if (CanUseCard(card))
-           // {
-           //     //change color of action cost
-           //     card.cardActionsText.color = Color.yellow;
-           // }
-           // else
-           // {
-           //     card.cardActionsText.color = Color.grey;
-           // }
+           //check if we can use cards
+           Card card = handConatiner.transform.GetChild(i).GetComponent<Card>();
+           if (CanUseCard(card))
+           {
+               //change color of action cost
+               card.cardActionsText.color = Color.yellow;
+           }
+           else
+           {
+               card.cardActionsText.color = Color.grey;
+           }
         }
     }
     public void InitialDraw() 
@@ -113,20 +113,17 @@ public class CardManager : MonoBehaviour
 
     private void DrawCard()
     {
-        if (drawContainer.childCount <= 0)
-        {
-            if (drawContainer.childCount <= 0)
-            {
-                ShuffleDeck();
-            }
-        }
-        else
+        if (drawContainer.childCount > 0)
         {
             int rand = Random.Range(0, drawContainer.childCount);
-            drawContainer.GetChild(rand).transform.SetParent(handConatiner, false);
+            drawContainer.GetChild(rand).transform.SetParent(handConatiner,false);
+        }
+        else if (drawContainer.childCount<=0)
+        {
+            ShuffleDeck();
         }
 
-        if (isStartingDraw)
+        if(isStartingDraw)
         {
             InitialDraw();
         }
@@ -149,7 +146,7 @@ public class CardManager : MonoBehaviour
 
     public void DiscardCard(Card card)
     {
-        for (int i = 0; i <handConatiner.childCount+1; i++)
+        for (int i = 0; i < handConatiner.childCount; i++)
         {
             if(handConatiner.GetChild(i).GetComponent<Card>()==card)
             {
@@ -166,7 +163,7 @@ public class CardManager : MonoBehaviour
 
     public void DiscardAllCards()
     {
-        for (int i = 0; i < handConatiner.childCount; i++)
+        for (int i = handConatiner.childCount-1;i>=0; i--)
         {
             DiscardCard(handConatiner.GetChild(i).GetComponent<Card>());
         }
@@ -192,7 +189,7 @@ public class CardManager : MonoBehaviour
     public bool CanUseCard(Card card)
     {
 
-        return currentActions > 0 && card.cardActions <= currentActions;
+        return currentActions > 0 && card.cardActions <= currentActions ;
         
     }
     public void StartNewTurn() 
@@ -200,12 +197,13 @@ public class CardManager : MonoBehaviour
         CombatManager.instance.currentArmor = 0;
         isStartingDraw = true;
         InitialDraw();
+        endTurnButton.gameObject.SetActive(true);
     }
 
     public void EndTurn()
     {
         DiscardAllCards();
-        endTurnButton.interactable = false;
+        endTurnButton.gameObject.SetActive(false);
         currentTurn = CurrentTurn.ENEMY;
         CombatManager.instance.currentEnemy.armor = 0;
 

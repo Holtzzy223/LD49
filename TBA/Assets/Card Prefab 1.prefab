@@ -193,7 +193,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02fd260b36f44a04f956d07425185e6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cardData: {fileID: 11400000, guid: fe505dff0960cf443a9febcddac1540e, type: 2}
+  cardData: {fileID: 11400000, guid: 6d630231e7b7d5e4cb0c8cfad6937e43, type: 2}
   cardNameText: {fileID: 5001001600066105106}
   cardFlavorText: {fileID: 5001001600095292113}
   cardDescText: {fileID: 5001001599343544767}

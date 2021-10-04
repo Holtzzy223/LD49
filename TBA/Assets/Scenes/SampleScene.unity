@@ -250,7 +250,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -394,7 +394,7 @@ RectTransform:
   m_Children:
   - {fileID: 1541335471}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -434,6 +434,7 @@ MonoBehaviour:
   enemyPrefab: {fileID: 1716978447630095477, guid: 714883aeec194c94294791c3ec8bf791, type: 3}
   enemyIndex: 
   enemyIndexData:
+  - {fileID: 11400000, guid: d3b76012eb52099479bb4f89a464de4d, type: 2}
   - {fileID: 11400000, guid: d3b76012eb52099479bb4f89a464de4d, type: 2}
 --- !u!4 &306441365
 Transform:
@@ -576,7 +577,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -717,7 +718,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &877614164
 GameObject:
@@ -774,7 +775,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -906,12 +907,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 905489269}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.5688813, y: -6.397197, z: -30.666344}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_Father: {fileID: 1118943471}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1049427819
 GameObject:
@@ -993,7 +994,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1118943469
 GameObject:
@@ -1027,8 +1028,8 @@ MonoBehaviour:
   combatManInst: {fileID: 1049427820}
   enchantPrefab: {fileID: 838435892}
   enchantContainer: {fileID: 178575195}
-  startCombatEnchants: 01000000
-  allCurrentEnchants: 00000000010000000200000003000000
+  startCombatEnchants: 
+  allCurrentEnchants: 01000000
   balanceBeamSO: {fileID: 11400000, guid: 34faa786d8d1ec64fb4c95680307409f, type: 2}
   scaleSO: {fileID: 0}
 --- !u!4 &1118943471
@@ -1041,7 +1042,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 2.5688813, y: -6.397197, z: -30.666344}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 905489271}
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1264,7 +1266,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2133861861}
         m_TargetAssemblyTypeName: CardManager, Assembly-CSharp
-        m_MethodName: StartNewTurn
+        m_MethodName: DiscardAllCards
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1481,7 +1483,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1532,7 +1534,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1781537427
 GameObject:
@@ -1598,7 +1600,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2133861860
 GameObject:
@@ -1636,6 +1638,17 @@ MonoBehaviour:
   discardContainer: {fileID: 410045245}
   handConatiner: {fileID: 877614166}
   currentDeck:
+  - {fileID: 11400000, guid: 6d630231e7b7d5e4cb0c8cfad6937e43, type: 2}
+  - {fileID: 11400000, guid: 6d630231e7b7d5e4cb0c8cfad6937e43, type: 2}
+  - {fileID: 11400000, guid: 6d630231e7b7d5e4cb0c8cfad6937e43, type: 2}
+  - {fileID: 11400000, guid: 6d630231e7b7d5e4cb0c8cfad6937e43, type: 2}
+  - {fileID: 11400000, guid: 6d630231e7b7d5e4cb0c8cfad6937e43, type: 2}
+  - {fileID: 11400000, guid: 6d630231e7b7d5e4cb0c8cfad6937e43, type: 2}
+  - {fileID: 11400000, guid: 6d630231e7b7d5e4cb0c8cfad6937e43, type: 2}
+  - {fileID: 11400000, guid: 6d630231e7b7d5e4cb0c8cfad6937e43, type: 2}
+  - {fileID: 11400000, guid: 6d630231e7b7d5e4cb0c8cfad6937e43, type: 2}
+  - {fileID: 11400000, guid: 6d630231e7b7d5e4cb0c8cfad6937e43, type: 2}
+  - {fileID: 11400000, guid: 6d630231e7b7d5e4cb0c8cfad6937e43, type: 2}
   - {fileID: 11400000, guid: 6d630231e7b7d5e4cb0c8cfad6937e43, type: 2}
   - {fileID: 11400000, guid: 6d630231e7b7d5e4cb0c8cfad6937e43, type: 2}
   - {fileID: 11400000, guid: 6d630231e7b7d5e4cb0c8cfad6937e43, type: 2}

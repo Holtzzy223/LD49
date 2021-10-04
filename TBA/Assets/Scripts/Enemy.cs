@@ -75,7 +75,10 @@ public class Enemy : MonoBehaviour
         maxHealth = enemyData.maxHealth;
         damage = enemyData.damage;
         armor = enemyData.armor;
-
+        for (int i = 0; i < enemyData.enemyIntents.Length; i++)
+        {
+            intentList.Add(enemyData.enemyIntents[i]);
+        }
         healthSlider.maxValue = maxHealth;
       //  enemyNameText.text = enemyName.ToUpper();
         CurrentHealth = maxHealth;
@@ -87,7 +90,7 @@ public class Enemy : MonoBehaviour
         currentHealth = Mathf.Clamp(currentHealth,0,maxHealth);
         if (currentHealth <= 0)
         {
-            //GameOver Display
+          
             Destroy(this.gameObject);
         }
 

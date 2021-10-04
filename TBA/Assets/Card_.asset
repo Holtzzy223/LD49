@@ -9,14 +9,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6adcf51dbc6f78648b250fc8e7de8b55, type: 3}
-  m_Name: Enemy_
+  m_Script: {fileID: 11500000, guid: 2ef5ba01a365fc8488f754d99b1df800, type: 3}
+  m_Name: Card_
   m_EditorClassIdentifier: 
-  enemyType: 0
-  enemyName: cody
-  maxHealth: 10
-  damage: 10
-  armor: 1
-  enemyIntents:
-  - intent: 0000000003000000
-    amt: 1
+  cardName: 
+  cardType: 1
+  cardPrice: 0
+  cardAP: 1
+  cardFlavor: 
+  cardDesc: 
+  cardStrength: 0
+  cardArmor: 0
+  cardDrawAmt: 0
+  cardBlock: 0

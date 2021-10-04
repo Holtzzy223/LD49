@@ -110,7 +110,7 @@ public class Card :MonoBehaviour, IPointerClickHandler
             //reset
             //rewards or punihsment
         }
-        else// if (_gameManInst.currentState == GameState.COMBAT)
+        else //if (_gameManInst.currentState == GameState.COMBAT)
         {
             if (_cardManInst.CanUseCard(this))
             {
@@ -120,7 +120,7 @@ public class Card :MonoBehaviour, IPointerClickHandler
                 {
                     //add all card types
                     case CardTypes.DAMAGE:
-                        CombatManager.instance.DealDamage(strength,CombatManager.instance.currentEnemy,this);
+                        CombatManager.instance.DealDamage(strength, CombatManager.instance.currentEnemy, this);
                         break;
                     case CardTypes.BLOCK:
                         break;
@@ -131,7 +131,8 @@ public class Card :MonoBehaviour, IPointerClickHandler
                 }
 
                 UIManager.instance.UpdateDisplay();
-            } 
+            }
+
         }
     }
 
