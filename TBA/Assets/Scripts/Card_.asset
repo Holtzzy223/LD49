@@ -16,8 +16,9 @@ MonoBehaviour:
   cardType: 1
   cardPrice: 5
   cardAP: 2
+  cardImage: {fileID: 21300000, guid: 0c12a73a1005caa4b85b8944a5944056, type: 3}
   cardFlavor: AI is a MENACE
-  cardDesc: ' X : "bzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzt"'
+  cardDesc: ' 3 Damage : "bzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzt"'
   cardStrength: 3
   cardArmor: 5
   cardDrawAmt: 4

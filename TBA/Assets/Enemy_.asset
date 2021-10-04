@@ -26,3 +26,4 @@ MonoBehaviour:
     amt: 2
   - intent: 02000000
     amt: 1
+  enemyImage: {fileID: 21300000, guid: 3abfa0bdb68c9cc48b9052db93dd8a47, type: 3}

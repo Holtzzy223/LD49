@@ -25,13 +25,19 @@ public class CardManager : MonoBehaviour
     public List<CardData> allCardsPossible = new List<CardData>();
 
     //default hand size
-    public int startingHandSize = 6;
+    public int startingHandSize = 2;
     //max hand size
-    public int maxHandSize = 12;
+    public int maxHandSize = 4;
 
     //action points
-    public int actionsAtStart = 4;
+    public int actionsAtStart = 3;
     public int currentActions = 0;
+
+    public int ActionsAtStart { get { return actionsAtStart; } set { actionsAtStart += value; } }
+    public int MaxHandSize { get { return maxHandSize; } set { maxHandSize += value; } }
+
+    
+
     //Draw
     public bool isStartingDraw = false;
     //UI

@@ -12,13 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ef5ba01a365fc8488f754d99b1df800, type: 3}
   m_Name: Card_
   m_EditorClassIdentifier: 
-  cardName: 
+  cardName: Behemoth
   cardType: 1
-  cardPrice: 0
-  cardAP: 1
-  cardFlavor: 
-  cardDesc: 
-  cardStrength: 0
+  cardPrice: 2
+  cardAP: 3
+  cardImage: {fileID: 21300000, guid: 5a9c762733e9e224ba74e11e587d9456, type: 3}
+  cardFlavor: rawrrrr
+  cardDesc: Stomp!
+  cardStrength: 5
   cardArmor: 0
   cardDrawAmt: 0
   cardBlock: 0

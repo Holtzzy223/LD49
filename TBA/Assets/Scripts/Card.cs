@@ -117,6 +117,7 @@ public class Card :MonoBehaviour
             if (_cardManInst.CanUseCard(this))
             {
                 _cardManInst.currentActions -= cardActions;
+                UIManager.instance.UpdateDisplay();
                 //Card stuff here
                 switch (cardType)
                 {
@@ -131,7 +132,7 @@ public class Card :MonoBehaviour
                         CardManager.instance.DiscardCard(this); 
                         break;
                     case CardTypes.BUFF:
-                        CombatManager.instance.BuffStat(CombatManager.instance.CurrentHealth,CombatManager.instance.maxHealth,this);
+                        CombatManager.instance.Heal(CombatManager.instance.maxHealth);
                         CardManager.instance.DiscardCard(this);
                         break;
                     case CardTypes.DEBUFF:
