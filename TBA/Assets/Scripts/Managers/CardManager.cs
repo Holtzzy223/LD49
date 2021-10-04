@@ -55,6 +55,7 @@ public class CardManager : MonoBehaviour
 
     private void Start()
     {
+       
         isStartingDraw = true;
         LoadDeck();
     }

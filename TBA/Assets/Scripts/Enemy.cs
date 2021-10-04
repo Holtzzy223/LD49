@@ -24,7 +24,8 @@ public class Enemy : MonoBehaviour
 
     public TextMeshProUGUI healthText;
     public TextMeshProUGUI enemyNameText;
-
+    public SpriteRenderer enemyImageRender;
+    public Sprite enemyImage;
     [Header("Intents Display")]
 
     public Image intentImage;
@@ -71,7 +72,8 @@ public class Enemy : MonoBehaviour
 
         enemyName = enemyData.enemyName;
         enemyType = enemyData.enemyType;
-
+        enemyImage = enemyData.enemyImage;
+        enemyImageRender.sprite = enemyImage;
         maxHealth = enemyData.maxHealth;
         damage = enemyData.damage;
         armor = enemyData.armor;

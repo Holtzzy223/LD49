@@ -35,7 +35,7 @@ public class UIManager : MonoBehaviour
         
        var _cmInst = CombatManager.instance;
        healthSlider.value = _cmInst.CurrentHealth;
-      // armorText.text = string.Format("Armor: {0}",_cmInst.currentArmor);
+  
       actionsText.text = string.Format("Actions: <color=#e6d64c>{1}</color>/<color=#e6d64c>{0}</color>", CardManager.instance.actionsAtStart,CardManager.instance.currentActions);
     
     }

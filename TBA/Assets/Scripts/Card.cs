@@ -9,7 +9,8 @@ public class Card :MonoBehaviour
 { 
     
     public CardData cardData;
-
+    public Sprite cardImage;
+    public SpriteRenderer spriteRenderer;
     [Header("Card Description")]
     public TextMeshProUGUI cardNameText;
     public TextMeshProUGUI cardFlavorText;
@@ -49,7 +50,8 @@ public class Card :MonoBehaviour
         strength = cardData.cardStrength;
         armor = cardData.cardArmor;
         cardDraw = cardData.cardDrawAmt;
-
+        cardImage = cardData.cardImage;
+        spriteRenderer.sprite = cardImage;
         UpdateDisplay();
     }
 
@@ -124,14 +126,16 @@ public class Card :MonoBehaviour
                         CombatManager.instance.DealDamage(strength, CombatManager.instance.currentEnemy);
                         
                         break;
-                    case CardTypes.BLOCK:
-
+                    case CardTypes.ABILITY:
+                        
                         CardManager.instance.DiscardCard(this); 
                         break;
                     case CardTypes.BUFF:
+                        CombatManager.instance.BuffStat(CombatManager.instance.CurrentHealth,CombatManager.instance.maxHealth,this);
                         CardManager.instance.DiscardCard(this);
                         break;
                     case CardTypes.DEBUFF:
+                        
                         CardManager.instance.DiscardCard(this);
                         break;
                 }

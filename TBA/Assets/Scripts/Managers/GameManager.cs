@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
 
     public GameState currentState;
-    
+    public AudioSource audioSource;
     private void Awake()
     {
         if (instance != null & instance != this)
@@ -27,7 +27,10 @@ public class GameManager : MonoBehaviour
         instance = this;
         DontDestroyOnLoad(this.gameObject);
     }
-
+    private void Start()
+    {
+        audioSource.Play();
+    }
     public void ChangeState(GameState newState)
     {
         if (instance.currentState == newState)

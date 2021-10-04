@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 [CreateAssetMenu(fileName = "Enemy_", menuName = "New enemy")]
 
@@ -12,7 +13,7 @@ public class EnemyData : ScriptableObject
     public int damage;
     public int armor;
     public EnemyIntent[] enemyIntents;
-
+    public Sprite enemyImage;
     [System.Serializable]
     public struct EnemyIntent
     {

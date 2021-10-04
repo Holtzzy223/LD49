@@ -195,6 +195,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cardData: {fileID: 11400000, guid: fe505dff0960cf443a9febcddac1540e, type: 2}
+  cardImage: {fileID: 0}
+  spriteRenderer: {fileID: 5001001598856788622}
   cardNameText: {fileID: 5001001600066105106}
   cardFlavorText: {fileID: 5001001600095292113}
   cardDescText: {fileID: 5001001599343544767}

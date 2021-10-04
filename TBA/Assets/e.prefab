@@ -132,6 +132,8 @@ MonoBehaviour:
   currentArmorDisp: {fileID: 0}
   healthText: {fileID: 0}
   enemyNameText: {fileID: 0}
+  enemyImageRender: {fileID: 7789379780854896913}
+  enemyImage: {fileID: 0}
   intentImage: {fileID: 0}
   intentAmtText: {fileID: 0}
   armorAmtDisplay: {fileID: 0}
