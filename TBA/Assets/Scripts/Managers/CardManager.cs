@@ -108,7 +108,7 @@ public class CardManager : MonoBehaviour
             isStartingDraw = false;
         }
         UIManager.instance.UpdateDisplay();
-       // UpdateDisplay();
+       UpdateDisplay();
     }
 
     private void DrawCard()
@@ -175,7 +175,7 @@ public class CardManager : MonoBehaviour
         {
             Transform tempCard = discardContainer.GetChild(i);
 
-            tempCard.transform.parent = drawContainer;
+            tempCard.transform.SetParent(drawContainer);
             ResetCardTransform(tempCard);
         }
         UpdateDisplay();

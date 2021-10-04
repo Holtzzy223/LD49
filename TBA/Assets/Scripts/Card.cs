@@ -5,8 +5,8 @@ using UnityEngine.EventSystems;
 
 using TMPro;
 using System;
-public class Card :MonoBehaviour, IPointerClickHandler
-{
+public class Card :MonoBehaviour
+{ 
     
     public CardData cardData;
 
@@ -110,7 +110,7 @@ public class Card :MonoBehaviour, IPointerClickHandler
             //reset
             //rewards or punihsment
         }
-        else //if (_gameManInst.currentState == GameState.COMBAT)
+        else if (_gameManInst.currentState == GameState.COMBAT)
         {
             if (_cardManInst.CanUseCard(this))
             {
@@ -120,13 +120,19 @@ public class Card :MonoBehaviour, IPointerClickHandler
                 {
                     //add all card types
                     case CardTypes.DAMAGE:
-                        CombatManager.instance.DealDamage(strength, CombatManager.instance.currentEnemy, this);
+                        CardManager.instance.DiscardCard(this);
+                        CombatManager.instance.DealDamage(strength, CombatManager.instance.currentEnemy);
+                        
                         break;
                     case CardTypes.BLOCK:
+
+                        CardManager.instance.DiscardCard(this); 
                         break;
                     case CardTypes.BUFF:
+                        CardManager.instance.DiscardCard(this);
                         break;
                     case CardTypes.DEBUFF:
+                        CardManager.instance.DiscardCard(this);
                         break;
                 }
 
@@ -136,7 +142,7 @@ public class Card :MonoBehaviour, IPointerClickHandler
         }
     }
 
-    public void OnPointerClick(PointerEventData eventData)
+    private void OnMouseDown()
     {
         Debug.Log("clicked card");
         UseCard();

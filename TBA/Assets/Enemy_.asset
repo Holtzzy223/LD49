@@ -18,5 +18,11 @@ MonoBehaviour:
   damage: 10
   armor: 1
   enemyIntents:
-  - intent: 0000000003000000
+  - intent: 00000000
+    amt: 2
+  - intent: 01000000
+    amt: 1
+  - intent: 03000000
+    amt: 2
+  - intent: 02000000
     amt: 1

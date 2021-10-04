@@ -41,6 +41,7 @@ public class GameManager : MonoBehaviour
             // add in all game states
             case GameState.PAUSE:
                 //Logic goes here
+                
                 break;
             case GameState.MAP:
                 //Logic goes here
