@@ -26,12 +26,12 @@ public class UIManager : MonoBehaviour
     public void UpdateDisplay()
     {
         //todo : update with hex codes
-        /*
-        var _cmInst = CombatManager.instance;
-        healthText.text = string.Format("{0}<color=#>/</color>{1}",_cmInst.CurrentHealth,_cmInst.maxHealth);
-        armorText.text = string.Format("Armor: {0}",_cmInst.currentArmor);
-        actionsText.text = string.Format("Acions: <color=#>{0}</color><color=#>{1}</color>",CardManager.instance.actionsAtStart,CardManager.instance.currentActions);
-    */
+        
+      // var _cmInst = CombatManager.instance;
+      // healthText.text = string.Format("{0}<color=#>/</color>{1}",_cmInst.CurrentHealth,_cmInst.maxHealth);
+      // armorText.text = string.Format("Armor: {0}",_cmInst.currentArmor);
+      // actionsText.text = string.Format("Acions: <color=#>{0}</color><color=#>{1}</color>",CardManager.instance.actionsAtStart,CardManager.instance.currentActions);
+    
     }
 
 }

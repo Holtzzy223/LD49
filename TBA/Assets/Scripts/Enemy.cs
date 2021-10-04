@@ -90,7 +90,10 @@ public class Enemy : MonoBehaviour
         currentHealth = Mathf.Clamp(currentHealth,0,maxHealth);
         if (currentHealth <= 0)
         {
-          
+
+            CardManager.instance.DiscardAllCards();
+            GameManager.instance.ChangeState(GameState.ENDMATCH);
+           
             Destroy(this.gameObject);
         }
 
