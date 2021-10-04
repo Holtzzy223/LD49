@@ -1102,7 +1102,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Button
+  m_text: New Turn
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1264,7 +1264,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2133861861}
         m_TargetAssemblyTypeName: CardManager, Assembly-CSharp
-        m_MethodName: InitialDraw
+        m_MethodName: StartNewTurn
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1647,8 +1647,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 6d630231e7b7d5e4cb0c8cfad6937e43, type: 2}
   - {fileID: 11400000, guid: 6d630231e7b7d5e4cb0c8cfad6937e43, type: 2}
   - {fileID: 11400000, guid: 6d630231e7b7d5e4cb0c8cfad6937e43, type: 2}
-  startingHandSize: 6
-  maxHandSize: 12
+  startingHandSize: 4
+  maxHandSize: 10
   actionsAtStart: 4
   currentActions: 0
   isStartingDraw: 0

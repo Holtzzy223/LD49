@@ -50,24 +50,24 @@ public class EnemyManager : MonoBehaviour
         Enemy enemy = enemyToSpawn.GetComponent<Enemy>();
         enemy.enemyData = enemyDictionary[rand];
         _CombatManInst.currentEnemy = enemy;
-
+        GameManager.instance.ChangeState(GameState.COMBAT);
     }
 
     public void NextIntent(Enemy enemy)
     {
-        int rand = Random.Range(0, enemy.enemyData.enemyIntents.Length);
-
-        enemy.intentList.Clear();
-        EnemyData.EnemyIntent intent = enemy.enemyData.enemyIntents[rand];
-
-        //loop through and add
-        for (int i = 0; i < intent.intent.Length; i++)
-        {
-            enemy.intentList.Add(intent);
-           
-        }
-
-        switch (enemy.intentList[0].intent[0])
+     // int rand = Random.Range(0, enemy.enemyData.enemyIntents.Length);
+     //
+     // enemy.intentList.Clear();
+     // EnemyData.EnemyIntent intent = enemy.enemyData.enemyIntents[rand];
+     //
+     // //loop through and add
+     // for (int i = 0; i < intent.intent.Length; i++)
+     // {
+     //     enemy.intentList.Add(intent);
+     //    
+     // }
+     //
+        //switch (enemy.intentList[0].intent[0])
         {
           //  case EnemyIntentType.ATTACK:
           //      enemy.intentImage.sprite = enemy.sprIntentAttack;

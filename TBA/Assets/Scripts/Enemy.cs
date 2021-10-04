@@ -51,10 +51,11 @@ public class Enemy : MonoBehaviour
     public Transform enemyStatusContainer;
     private void Awake()
     {
-        _statusManagerInst = StatusManager.instance;
+       
     }
     public void Start()
     {
+        _statusManagerInst = StatusManager.instance;
         StatusManager.instance.enemyStatusContainer = enemyStatusContainer;
         CollectEnemyData();
     }

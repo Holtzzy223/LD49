@@ -27,15 +27,15 @@ public class Enchantment : MonoBehaviour
 
     private void LoadEnchantmentData()
     {
-        enchantmentName = enchantmentData.enchantmentName;
-        enchantmentSprite = enchantmentData.enchantmentSprite;
-        enchantmentDesc = enchantmentData.enchantmentDesc;
-
-        GetComponent<Image>().sprite = enchantmentSprite;
-
-        enchantmentText.text = enchantmentName;
-        titleText.text = enchantmentType.ToString();
-        descText.text = enchantmentDesc;
+        ///enchantmentName = enchantmentData.enchantmentName;
+        ///enchantmentSprite = enchantmentData.enchantmentSprite;
+        ///enchantmentDesc = enchantmentData.enchantmentDesc;
+        ///
+        /////GetComponent<Image>().sprite = enchantmentSprite;
+        ///
+        ///enchantmentText.text = enchantmentName;
+        ///titleText.text = enchantmentType.ToString();
+        ///descText.text = enchantmentDesc;
 
     }
 }

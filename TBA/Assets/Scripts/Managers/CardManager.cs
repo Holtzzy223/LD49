@@ -76,19 +76,19 @@ public class CardManager : MonoBehaviour
        // drawText.text = drawContainer.childCount.ToString();
         //discardText.text = discardContainer.childCount.ToString();
 
-        for (int i = 0; i < handConatiner.childCount-1; i++)
+        //for (int i = 0; i < handConatiner.childCount; i++)
         {
             //check if we can use cards
-            Card card = handConatiner.transform.GetChild(i).GetComponent<Card>();
-            if (CanUseCard(card))
-            {
-                //change color of action cost
-                card.cardActionsText.color = Color.yellow;
-            }
-            else
-            {
-                card.cardActionsText.color = Color.grey;
-            }
+           // Card card = handConatiner.transform.GetChild(i).GetComponent<Card>();
+           // if (CanUseCard(card))
+           // {
+           //     //change color of action cost
+           //     card.cardActionsText.color = Color.yellow;
+           // }
+           // else
+           // {
+           //     card.cardActionsText.color = Color.grey;
+           // }
         }
     }
     public void InitialDraw() 
@@ -108,22 +108,25 @@ public class CardManager : MonoBehaviour
             isStartingDraw = false;
         }
         UIManager.instance.UpdateDisplay();
-        UpdateDisplay();
+       // UpdateDisplay();
     }
 
     private void DrawCard()
     {
-        if (drawContainer.childCount > 0)
+        if (drawContainer.childCount <= 0)
+        {
+            if (drawContainer.childCount <= 0)
+            {
+                ShuffleDeck();
+            }
+        }
+        else
         {
             int rand = Random.Range(0, drawContainer.childCount);
-            drawContainer.GetChild(rand).transform.SetParent(handConatiner,false);
-        }
-        else if (drawContainer.childCount<=0)
-        {
-            ShuffleDeck();
+            drawContainer.GetChild(rand).transform.SetParent(handConatiner, false);
         }
 
-        if(isStartingDraw)
+        if (isStartingDraw)
         {
             InitialDraw();
         }
@@ -146,13 +149,13 @@ public class CardManager : MonoBehaviour
 
     public void DiscardCard(Card card)
     {
-        for (int i = 0; i <handConatiner.childCount; i++)
+        for (int i = 0; i <handConatiner.childCount+1; i++)
         {
             if(handConatiner.GetChild(i).GetComponent<Card>()==card)
             {
                 Transform _transform = handConatiner.GetChild(i);
 
-                _transform.parent = discardContainer;
+                _transform.SetParent(discardContainer);
                 ResetCardTransform(_transform);
                 UpdateDisplay();
 
@@ -171,7 +174,7 @@ public class CardManager : MonoBehaviour
         
     public void ShuffleDeck()
     {
-        for(int i = discardContainer.childCount - 1; i >= 0 ; i--)
+        for(int i = discardContainer.childCount - 1 ; i >= 0 ; i--)
         {
             Transform tempCard = discardContainer.GetChild(i);
 
