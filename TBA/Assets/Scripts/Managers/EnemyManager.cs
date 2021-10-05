@@ -94,7 +94,7 @@ public class EnemyManager : MonoBehaviour
     {
         yield return new WaitForSeconds(0.5f);
 
-        for (int i = 0; i <=enemy.intentList.Count-1; i++)
+        for (int i = 0; i <= enemy.intentList.Count - 1; i++)
         {
             switch (enemy.intentList[i].intent[i])
             {

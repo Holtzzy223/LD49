@@ -35,6 +35,8 @@ public class CardManager : MonoBehaviour
 
     public int ActionsAtStart { get { return actionsAtStart; } set { actionsAtStart += value; } }
     public int MaxHandSize { get { return maxHandSize; } set { maxHandSize += value; } }
+    public int StartHandSize { get { return startingHandSize; } set { startingHandSize += value; } }
+
 
     
 
