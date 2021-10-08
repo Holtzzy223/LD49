@@ -9,8 +9,10 @@ public class Card :MonoBehaviour
 { 
     
     public CardData cardData;
-    public Sprite cardImage;
-    public SpriteRenderer spriteRenderer;
+    public Sprite cardArtImage;
+    public Sprite cardBackerImage;
+    public SpriteRenderer spriteArtRenderer;
+    public SpriteRenderer spriteBackerRenderer;
     [Header("Card Description")]
     public TextMeshProUGUI cardNameText;
     public TextMeshProUGUI cardFlavorText;
@@ -50,8 +52,10 @@ public class Card :MonoBehaviour
         strength = cardData.cardStrength;
         armor = cardData.cardArmor;
         cardDraw = cardData.cardDrawAmt;
-        cardImage = cardData.cardImage;
-        spriteRenderer.sprite = cardImage;
+        cardArtImage = cardData.cardArtImage;
+        cardBackerImage = cardData.cardBackerImage;
+        spriteArtRenderer.sprite = cardArtImage;
+        spriteBackerRenderer.sprite = cardBackerImage;
         UpdateDisplay();
     }
 
@@ -69,7 +73,7 @@ public class Card :MonoBehaviour
     private string ProcessDescription()
     {
         string[] tempArr = cardDesc.Split(' ');
-        string newCardDesc = "";
+        string newCardDesc = " ";
         cardDesc = "";
         switch (cardData.cardType)
         {
@@ -97,7 +101,7 @@ public class Card :MonoBehaviour
                 {
                     tempArr[i] = cardAttribute2.ToString();
                 }
-                newCardDesc += tempArr[i];
+                newCardDesc += tempArr[i]+ " ";
             }
             return newCardDesc;
         }

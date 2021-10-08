@@ -253,9 +253,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02fd260b36f44a04f956d07425185e6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cardData: {fileID: 11400000, guid: fe505dff0960cf443a9febcddac1540e, type: 2}
-  cardImage: {fileID: 0}
-  spriteRenderer: {fileID: 1297108253293004917}
+  cardData: {fileID: 0}
+  cardArtImage: {fileID: 0}
+  cardBackerImage: {fileID: 0}
+  spriteArtRenderer: {fileID: 1297108253293004917}
+  spriteBackerRenderer: {fileID: 2437709843328860970}
   cardNameText: {fileID: 5001001600066105106}
   cardFlavorText: {fileID: 5001001600095292113}
   cardDescText: {fileID: 5001001599343544767}

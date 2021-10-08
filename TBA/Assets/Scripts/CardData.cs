@@ -10,7 +10,8 @@ public class CardData : ScriptableObject
     public CardTypes cardType;
     public int cardPrice;     //card's price at shop
     public int cardAP;        //cards's Action Cost
-    public Sprite cardImage;
+    public Sprite cardArtImage;  //Artwork for Card Image
+    public Sprite cardBackerImage;  //Artwork for Card Backer
     [Multiline] 
     public string cardFlavor; //Flavor Text
     [Multiline]

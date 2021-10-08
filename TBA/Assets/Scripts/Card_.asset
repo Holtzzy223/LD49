@@ -12,14 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ef5ba01a365fc8488f754d99b1df800, type: 3}
   m_Name: Card_
   m_EditorClassIdentifier: 
-  cardName: Elon's Might
-  cardType: 1
+  cardName: Sorecess Fury
+  cardType: 3
   cardPrice: 5
   cardAP: 2
-  cardImage: {fileID: 21300000, guid: 0c12a73a1005caa4b85b8944a5944056, type: 3}
-  cardFlavor: AI is a MENACE
-  cardDesc: ' 3 Damage : "bzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzt"'
+  cardArtImage: {fileID: 21300000, guid: 6c38e910a3e69bb4d94333345d52d2bd, type: 3}
+  cardBackerImage: {fileID: 21300000, guid: 92cb129d6255ced429a2b7cb197d8c60, type: 3}
+  cardFlavor: wrath incarnate...
+  cardDesc: Apply + X  damage to next attack, draw Y cards
   cardStrength: 3
   cardArmor: 5
-  cardDrawAmt: 4
+  cardDrawAmt: 2
   cardBlock: 5
