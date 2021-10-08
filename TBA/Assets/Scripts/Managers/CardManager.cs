@@ -75,6 +75,8 @@ public class CardManager : MonoBehaviour
             GameObject newCard = Instantiate(newCardPrefab, drawContainer);
             newCard.GetComponent<Card>().cardData = currentDeck[i];
             newCard.name = newCard.GetComponent<Card>().cardData.cardName;
+
+            newCard.transform.localPosition = new Vector3(newCard.transform.localPosition.x, newCard.transform.localPosition.y, newCard.transform.localPosition.z+i);
         }
         UpdateDisplay();
         EnemyManager.instance.SpawnEnemy();
@@ -162,7 +164,9 @@ public class CardManager : MonoBehaviour
                 Transform _transform = handConatiner.GetChild(i);
 
                 _transform.SetParent(discardContainer);
+
                 ResetCardTransform(_transform);
+                _transform.localPosition = new Vector3(_transform.localPosition.x, _transform.localPosition.y, _transform.localPosition.z + i);
                 UpdateDisplay();
 
                 return;
