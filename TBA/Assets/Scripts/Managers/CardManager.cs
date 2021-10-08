@@ -190,6 +190,7 @@ public class CardManager : MonoBehaviour
 
             tempCard.transform.SetParent(drawContainer);
             ResetCardTransform(tempCard);
+            tempCard.transform.localPosition = new Vector3(tempCard.transform.localPosition.x, tempCard.transform.localPosition.y, tempCard.transform.localPosition.z-i);
         }
         UpdateDisplay();
     }

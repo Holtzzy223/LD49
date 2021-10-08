@@ -466,7 +466,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 276372340}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: c064052116517594ab9334434b5c3324, type: 3}
@@ -1543,6 +1543,18 @@ MonoBehaviour:
       - m_Target: {fileID: 2133861861}
         m_TargetAssemblyTypeName: CardManager, Assembly-CSharp
         m_MethodName: set_MaxHandSize
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2133861861}
+        m_TargetAssemblyTypeName: CardManager, Assembly-CSharp
+        m_MethodName: set_StartHandSize
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3198,8 +3210,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 6d630231e7b7d5e4cb0c8cfad6937e43, type: 2}
   - {fileID: 11400000, guid: 6d630231e7b7d5e4cb0c8cfad6937e43, type: 2}
   - {fileID: 11400000, guid: e5f14b7345107f846881cc9f3dec868c, type: 2}
-  startingHandSize: 4
-  maxHandSize: 10
+  startingHandSize: 2
+  maxHandSize: 4
   actionsAtStart: 4
   currentActions: 0
   isStartingDraw: 0
