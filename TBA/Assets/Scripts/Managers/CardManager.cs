@@ -13,7 +13,7 @@ public class CardManager : MonoBehaviour
     public CurrentTurn currentTurn;
     public int stableTurnsLeft = 10;
     public GameObject newCardPrefab;
-
+    public int handCount = 0;
     public Transform drawContainer; //Cards Draw Area
     public Transform discardContainer; //Cards Discard Area
     public Transform handConatiner; //Current Hand Area
@@ -127,7 +127,10 @@ public class CardManager : MonoBehaviour
         if (drawContainer.childCount > 0)
         {
             int rand = Random.Range(0, drawContainer.childCount);
-            drawContainer.GetChild(rand).transform.SetParent(handConatiner,false);
+            var card = drawContainer.GetChild(rand);
+            card.SetParent(handConatiner,false);
+            card.gameObject.GetComponent<Card>().isInHand = true;
+
         }
         else if (drawContainer.childCount<=0)
         {
@@ -164,9 +167,9 @@ public class CardManager : MonoBehaviour
                 Transform _transform = handConatiner.GetChild(i);
 
                 _transform.SetParent(discardContainer);
-
+                _transform.gameObject.GetComponent<Card>().isInHand = false;
                 ResetCardTransform(_transform);
-                _transform.localPosition = new Vector3(_transform.localPosition.x, _transform.localPosition.y, _transform.localPosition.z + i);
+                _transform.localPosition = new Vector3(_transform.localPosition.x, _transform.localPosition.y, _transform.localPosition.z - i*(handCount+1));
                 UpdateDisplay();
 
                 return;
@@ -178,8 +181,11 @@ public class CardManager : MonoBehaviour
     {
         for (int i = handConatiner.childCount-1;i>=0; i--)
         {
-            DiscardCard(handConatiner.GetChild(i).GetComponent<Card>());
+            var card = handConatiner.GetChild(i).GetComponent<Card>();
+            DiscardCard(card);
+            card.transform.localPosition = new Vector3(0, 0, card.transform.localPosition.z - ( i * (handCount+1)));
         }
+        handCount++;
     }
         
     public void ShuffleDeck()
@@ -202,9 +208,9 @@ public class CardManager : MonoBehaviour
 
     public bool CanUseCard(Card card)
     {
-
-        return currentActions > 0 && card.cardActions <= currentActions ;
-        
+   
+            return card.isInHand && currentActions > 0 && card.cardActions <= currentActions;
+    
     }
     public void StartNewTurn() 
     {

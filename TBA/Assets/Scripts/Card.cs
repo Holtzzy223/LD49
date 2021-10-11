@@ -13,6 +13,7 @@ public class Card :MonoBehaviour
     public Sprite cardBackerImage;
     public SpriteRenderer spriteArtRenderer;
     public SpriteRenderer spriteBackerRenderer;
+    public bool isInHand = false;
     [Header("Card Description")]
     public TextMeshProUGUI cardNameText;
     public TextMeshProUGUI cardFlavorText;
@@ -153,7 +154,7 @@ public class Card :MonoBehaviour
 
     private void OnMouseDown()
     {
-        Debug.Log("clicked card");
+
         UseCard();
     }
 }
