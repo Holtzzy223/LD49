@@ -3189,6 +3189,7 @@ MonoBehaviour:
   currentTurn: 0
   stableTurnsLeft: 10
   newCardPrefab: {fileID: 5001001598965068857, guid: c7a9c9d358f81444da57be2e0bf82511, type: 3}
+  handCount: 0
   drawContainer: {fileID: 1583739118}
   discardContainer: {fileID: 410045245}
   handConatiner: {fileID: 877614166}

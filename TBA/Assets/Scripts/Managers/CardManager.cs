@@ -107,6 +107,7 @@ public class CardManager : MonoBehaviour
         CombatManager.instance.currentEnemy.OnTurnEnd();
        
         currentTurn = CurrentTurn.PLAYER;
+       
         endTurnButton.interactable = true;
         currentActions = actionsAtStart;
 
@@ -122,7 +123,7 @@ public class CardManager : MonoBehaviour
        UpdateDisplay();
     }
 
-    private void DrawCard()
+    public void DrawCard()
     {
         if (drawContainer.childCount > 0)
         {
@@ -143,21 +144,22 @@ public class CardManager : MonoBehaviour
         }
 
     }
-
-    public IEnumerator DrawCards(Card card)
+   
+    public IEnumerator DrawCards(int drawAmt)
     {
-        int drawAmt = card.cardDraw;
+        
 
         for(int i = 0; i < drawAmt; i++)
         {
             DrawCard();
+            UpdateDisplay();
             Debug.Log("Card Drawn");
-            yield return new WaitForSeconds(0.02f);
+            yield return new WaitForSeconds(0.25f);
         }
-        yield return new WaitForEndOfFrame();
-        DiscardCard(card);
-    }
+        yield return new WaitForSeconds(0.5f);
 
+    }
+    
     public void DiscardCard(Card card)
     {
         for (int i = 0; i < handConatiner.childCount; i++)
@@ -169,7 +171,7 @@ public class CardManager : MonoBehaviour
                 _transform.SetParent(discardContainer);
                 _transform.gameObject.GetComponent<Card>().isInHand = false;
                 ResetCardTransform(_transform);
-                _transform.localPosition = new Vector3(_transform.localPosition.x, _transform.localPosition.y, _transform.localPosition.z - i*(handCount+1));
+                _transform.localPosition = new Vector3(_transform.localPosition.x, _transform.localPosition.y, _transform.localPosition.z + i*(handCount+1));
                 UpdateDisplay();
 
                 return;
@@ -177,13 +179,16 @@ public class CardManager : MonoBehaviour
         }
     }
 
+    // rework... do we need to see dicarded cards?  do we need to see cards being drawn? will icons work for both? : no, no, yes.
     public void DiscardAllCards()
     {
+        var j = 0;
         for (int i = handConatiner.childCount-1;i>=0; i--)
         {
+            j++;
             var card = handConatiner.GetChild(i).GetComponent<Card>();
             DiscardCard(card);
-            card.transform.localPosition = new Vector3(0, 0, card.transform.localPosition.z - ( i * (handCount+1)));
+            card.transform.localPosition = new Vector3(0, 0, card.transform.localPosition.z +j);
         }
         handCount++;
     }
@@ -226,7 +231,7 @@ public class CardManager : MonoBehaviour
         endTurnButton.gameObject.SetActive(false);
         currentTurn = CurrentTurn.ENEMY;
         CombatManager.instance.currentEnemy.armor = 0;
-
+        CombatManager.instance.TurnCounter++;
         StartCoroutine(EnemyManager.instance.TakeTurn(CombatManager.instance.currentEnemy));
         UpdateDisplay();
 

@@ -86,7 +86,7 @@ public class Card :MonoBehaviour
                 ParseDesc(armor);
             break;
             case CardTypes.ABILITY:
-                ParseDesc(cardDraw, armor);
+                ParseDesc(cardDraw, strength);
             break;
         }
         return newCardDesc;
@@ -130,11 +130,13 @@ public class Card :MonoBehaviour
                     case CardTypes.DAMAGE:
                         CardManager.instance.DiscardCard(this);
                         CombatManager.instance.DealDamage(strength, CombatManager.instance.currentEnemy);
-                        
                         break;
                     case CardTypes.ABILITY:
-                        
-                        CardManager.instance.DiscardCard(this); 
+
+                        var drawRoutine = CardManager.instance.DrawCards(this.cardDraw);
+                        CardManager.instance.DiscardCard(this);
+                        StartCoroutine(drawRoutine);                    
+                        CombatManager.instance.DealDamage(strength,CombatManager.instance.currentEnemy); 
                         break;
                     case CardTypes.BUFF:
                         CombatManager.instance.Heal(CombatManager.instance.maxHealth);
@@ -155,6 +157,11 @@ public class Card :MonoBehaviour
     private void OnMouseDown()
     {
 
+        
+    }
+    private void OnMouseUpAsButton()
+    {
         UseCard();
     }
+
 }

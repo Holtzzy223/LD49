@@ -16,6 +16,10 @@ public class CombatManager : MonoBehaviour
     public int currentStrength = 1;
     [SerializeField]
     private int currentHealth;
+    [SerializeField]
+    private int turnCount = 0;
+   
+    public int TurnCounter { get { return turnCount; } set { turnCount = value; } }
     public int CurrentHealth { get { return currentHealth; } set { currentHealth = value;UpdateHealthDisplay(); } }
     public CardManager _cardManagerInst;
     public StatusManager _statusManagerInst;
