@@ -54,7 +54,7 @@ public class Card :MonoBehaviour
         armor = cardData.cardArmor;
         cardDraw = cardData.cardDrawAmt;
         cardArtImage = cardData.cardArtImage;
-        cardBackerImage = cardData.cardBackerImage;
+        cardBackerImage = cardData.GetBackerImage();
         spriteArtRenderer.sprite = cardArtImage;
         spriteBackerRenderer.sprite = cardBackerImage;
         UpdateDisplay();
