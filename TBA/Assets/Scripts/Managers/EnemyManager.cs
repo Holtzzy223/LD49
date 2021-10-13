@@ -92,10 +92,10 @@ public class EnemyManager : MonoBehaviour
     }
     public IEnumerator TakeTurn(Enemy enemy)
     {
-        yield return new WaitForSeconds(0.5f);
 
         for (int i = 0; i <= enemy.intentList.Count - 1; i++)
         {
+            yield return new WaitForSeconds(0.5f);
             switch (enemy.intentList[i].intent[i])
             {
                 case EnemyIntentType.ATTACK:
@@ -120,6 +120,7 @@ public class EnemyManager : MonoBehaviour
             break;
         }
         EndTurn();
+       
     }
     private int GetStat(Enemy enemy)
     {

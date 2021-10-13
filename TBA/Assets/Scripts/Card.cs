@@ -134,7 +134,7 @@ public class Card :MonoBehaviour
                     case CardTypes.ABILITY:
 
                         var drawRoutine = CardManager.instance.DrawCards(this.cardDraw);
-                        CardManager.instance.ExhaustCard(this);
+                        CardManager.instance.DiscardCard(this,true);
                         StartCoroutine(drawRoutine);                    
                         CombatManager.instance.DealDamage(strength,CombatManager.instance.currentEnemy); 
                         break;

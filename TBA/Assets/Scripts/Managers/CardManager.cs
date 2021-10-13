@@ -160,8 +160,13 @@ public class CardManager : MonoBehaviour
 
     }
     
-    public void DiscardCard(Card card)
+    public void DiscardCard(Card card, bool Exhaust = false)
     {
+        if (Exhaust)
+        {
+            ExhaustCard(card);
+            return;
+        }
         for (int i = 0; i < handConatiner.childCount; i++)
         {
             if(handConatiner.GetChild(i).GetComponent<Card>()==card)
@@ -196,15 +201,15 @@ public class CardManager : MonoBehaviour
 
 
     // rework... do we need to see dicarded cards?  do we need to see cards being drawn? will icons work for both? : no, no, yes.
-    public void DiscardAllCards()
+    public void DiscardAllCards(bool Exhaust = false)
     {
-        var j = 0;
+       
         for (int i = handConatiner.childCount-1;i>=0; i--)
         {
-            j++;
+   
             var card = handConatiner.GetChild(i).GetComponent<Card>();
-            DiscardCard(card);
-            card.transform.localPosition = new Vector3(0, 0, card.transform.localPosition.z +j);
+            DiscardCard(card,Exhaust);
+            card.transform.localPosition = new Vector3(0, 0, card.transform.localPosition.z +handCount);
         }
         handCount++;
     }
