@@ -93,7 +93,7 @@ SpriteRenderer:
   m_Size: {x: 18.001757, y: 25.199999}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &5001001598856788720
@@ -220,7 +220,7 @@ RectTransform:
   m_GameObject: {fileID: 5001001598965068857}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.25, y: 1.25, z: 1}
   m_Children:
   - {fileID: 4975345791775827110}
   - {fileID: 3658260433239388610}
@@ -258,6 +258,7 @@ MonoBehaviour:
   cardBackerImage: {fileID: 0}
   spriteArtRenderer: {fileID: 1297108253293004917}
   spriteBackerRenderer: {fileID: 2437709843328860970}
+  isInHand: 0
   cardNameText: {fileID: 5001001600066105106}
   cardFlavorText: {fileID: 5001001600095292113}
   cardDescText: {fileID: 5001001599343544767}

@@ -10,13 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2ef5ba01a365fc8488f754d99b1df800, type: 3}
-  m_Name: Card_Test
+  m_Name: Card_GuardianAngel
   m_EditorClassIdentifier: 
-  cardName: 
+  cardName: Guardian Angel
+  cardType: 4
   cardPrice: 0
-  cardAP: 0
-  cardFlavor: 
-  cardDesc: 
-  cartStrength: 0
-  cardDefense: 0
-  cradDrawAmt: 0
+  cardAP: 3
+  cardArtImage: {fileID: 21300000, guid: 5aa994d920d03ab41b81ca500f257a6c, type: 3}
+  cardFlavor: god is dead
+  cardDesc: HEAL THYSELF
+  cardStrength: 0
+  cardArmor: 0
+  cardDrawAmt: 0
+  cardBlock: 0

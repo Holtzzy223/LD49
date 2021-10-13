@@ -80,7 +80,7 @@ public class Card :MonoBehaviour
         {
             // TODO ADD ALL CARD TYPES
             case CardTypes.DAMAGE:
-                ParseDesc(strength);
+                ParseDesc(strength, cardDraw);
             break;
             case CardTypes.BLOCK:
                 ParseDesc(armor);
@@ -122,18 +122,18 @@ public class Card :MonoBehaviour
             if (_cardManInst.CanUseCard(this))
             {
                 _cardManInst.currentActions -= cardActions;
+                var drawRoutine = CardManager.instance.DrawCards(this.cardDraw);
                 UIManager.instance.UpdateDisplay();
                 //Card stuff here
                 switch (cardType)
                 {
                     //add all card types
                     case CardTypes.DAMAGE:
+                        StartCoroutine(drawRoutine);
                         CardManager.instance.DiscardCard(this);
                         CombatManager.instance.DealDamage(strength, CombatManager.instance.currentEnemy);
                         break;
                     case CardTypes.ABILITY:
-
-                        var drawRoutine = CardManager.instance.DrawCards(this.cardDraw);
                         CardManager.instance.DiscardCard(this,true);
                         StartCoroutine(drawRoutine);                    
                         CombatManager.instance.DealDamage(strength,CombatManager.instance.currentEnemy); 

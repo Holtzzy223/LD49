@@ -10,17 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2ef5ba01a365fc8488f754d99b1df800, type: 3}
-  m_Name: Card_
+  m_Name: Card_Raptor
   m_EditorClassIdentifier: 
-  cardName: Behemoth
+  cardName: Raptors
   cardType: 1
-  cardPrice: 2
-  cardAP: 3
-  cardArtImage: {fileID: 21300000, guid: 81e812d10bdb60a42a0f5cb8d0cb240b, type: 3}
-  cardBackerImage: {fileID: 21300000, guid: e795227396d24a8418f570a8aea0e7c5, type: 3}
-  cardFlavor: rawrrrr
-  cardDesc: Stomp!
-  cardStrength: 5
+  cardPrice: 1
+  cardAP: 1
+  cardArtImage: {fileID: 21300000, guid: 2aa6b0ebfc11b79438e966fcb4a2218b, type: 3}
+  cardFlavor: Clever girl...
+  cardDesc: 'Deal X Damage, Draw Y Cards '
+  cardStrength: 2
   cardArmor: 0
-  cardDrawAmt: 0
+  cardDrawAmt: 1
   cardBlock: 0
