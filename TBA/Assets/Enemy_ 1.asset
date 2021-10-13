@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6adcf51dbc6f78648b250fc8e7de8b55, type: 3}
   m_Name: Enemy_ 1
   m_EditorClassIdentifier: 
-  enemyType: 1
-  enemyName: cody
+  enemyType: 0
+  enemyName: Scorpy
   maxHealth: 25
   damage: 5
   armor: 1
@@ -22,4 +22,6 @@ MonoBehaviour:
     amt: 2
   - intent: 03000000
     amt: 1
-  enemyImage: {fileID: 21300000, guid: b7f9ca81645c512408440d2e33abe978, type: 3}
+  - intent: 02000000
+    amt: 1
+  enemyImage: {fileID: 21300000, guid: 014815fa96329cd47bdc02f6230d93af, type: 3}

@@ -12,14 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6adcf51dbc6f78648b250fc8e7de8b55, type: 3}
   m_Name: Enemy_ 3
   m_EditorClassIdentifier: 
-  enemyType: 1
-  enemyName: cody
-  maxHealth: 50
-  damage: 10
+  enemyType: 0
+  enemyName: Snek
+  maxHealth: 10
+  damage: 2
   armor: 1
   enemyIntents:
   - intent: 00000000
     amt: 2
   - intent: 03000000
     amt: 1
-  enemyImage: {fileID: 21300000, guid: b7f9ca81645c512408440d2e33abe978, type: 3}
+  - intent: 01000000
+    amt: 1
+  enemyImage: {fileID: 21300000, guid: 55031d5696f4b3a4db566338f90abd9f, type: 3}

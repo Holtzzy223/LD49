@@ -5,7 +5,7 @@ using UnityEngine;
 public enum EnemyType 
 {
     //replace with types
-    Drummer,
-    singer,
-    guitarist
+    Pleb,
+    Elite,
+    Boss
 }

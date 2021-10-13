@@ -694,12 +694,9 @@ MonoBehaviour:
   enemyIndexData:
   - {fileID: 11400000, guid: d3b76012eb52099479bb4f89a464de4d, type: 2}
   - {fileID: 11400000, guid: 7e3b95cdc8e6e814394265be3448cf2b, type: 2}
-  - {fileID: 11400000, guid: 7e3b95cdc8e6e814394265be3448cf2b, type: 2}
-  - {fileID: 11400000, guid: d3b76012eb52099479bb4f89a464de4d, type: 2}
   - {fileID: 11400000, guid: a414cf08c1bc5754a9ee2cb4bb67cd39, type: 2}
   - {fileID: 11400000, guid: d85a9aa1f8ce0ae4288bd99ec059853b, type: 2}
-  - {fileID: 11400000, guid: d85a9aa1f8ce0ae4288bd99ec059853b, type: 2}
-  - {fileID: 11400000, guid: a414cf08c1bc5754a9ee2cb4bb67cd39, type: 2}
+  - {fileID: 11400000, guid: e45232ac9fdf9c04695403939aefd307, type: 2}
 --- !u!4 &306441365
 Transform:
   m_ObjectHideFlags: 0

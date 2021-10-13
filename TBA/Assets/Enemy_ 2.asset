@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Enemy_ 2
   m_EditorClassIdentifier: 
   enemyType: 1
-  enemyName: cody
+  enemyName: Beelze
   maxHealth: 35
   damage: 15
   armor: 1
@@ -21,5 +21,9 @@ MonoBehaviour:
   - intent: 00000000
     amt: 2
   - intent: 03000000
+    amt: 1
+  - intent: 02000000
+    amt: 1
+  - intent: 01000000
     amt: 1
   enemyImage: {fileID: 21300000, guid: 1995f62b4dbebd043a70a6744f780ac7, type: 3}
