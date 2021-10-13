@@ -1724,6 +1724,7 @@ MonoBehaviour:
   currentArmor: 0
   currentStrength: 1
   currentHealth: 0
+  turnCount: 0
   _cardManagerInst: {fileID: 2133861861}
   _statusManagerInst: {fileID: 905489270}
   currentStatuses: 

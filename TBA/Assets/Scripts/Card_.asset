@@ -19,7 +19,7 @@ MonoBehaviour:
   cardArtImage: {fileID: 21300000, guid: 6c38e910a3e69bb4d94333345d52d2bd, type: 3}
   cardBackerImage: {fileID: 21300000, guid: 92cb129d6255ced429a2b7cb197d8c60, type: 3}
   cardFlavor: wrath incarnate...
-  cardDesc: Apply + X  damage to next attack, draw Y cards
+  cardDesc: Deal Y  damage , draw X cards
   cardStrength: 3
   cardArmor: 5
   cardDrawAmt: 2

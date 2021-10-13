@@ -134,7 +134,7 @@ public class Card :MonoBehaviour
                     case CardTypes.ABILITY:
 
                         var drawRoutine = CardManager.instance.DrawCards(this.cardDraw);
-                        CardManager.instance.DiscardCard(this);
+                        CardManager.instance.ExhaustCard(this);
                         StartCoroutine(drawRoutine);                    
                         CombatManager.instance.DealDamage(strength,CombatManager.instance.currentEnemy); 
                         break;
@@ -157,7 +157,7 @@ public class Card :MonoBehaviour
     private void OnMouseDown()
     {
 
-        
+         
     }
     private void OnMouseUpAsButton()
     {

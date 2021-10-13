@@ -179,6 +179,22 @@ public class CardManager : MonoBehaviour
         }
     }
 
+    public void ExhaustCard(Card card)
+    {
+        for (int i = 0; i < handConatiner.childCount; i++)
+        {
+            if (handConatiner.GetChild(i).GetComponent<Card>() == card)
+            {
+                Transform _transform = handConatiner.GetChild(i);
+
+                Destroy(_transform.gameObject);
+
+                return;
+            }
+        }
+    }
+
+
     // rework... do we need to see dicarded cards?  do we need to see cards being drawn? will icons work for both? : no, no, yes.
     public void DiscardAllCards()
     {
