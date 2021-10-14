@@ -107,10 +107,16 @@ public class Enemy : MonoBehaviour
     public void ArmorCheck()
     {
         armor = Mathf.Clamp(armor, 0, 999);
+        armorAmtDisplay.text = "Armor: " + armor;
         if (armor <= 0)
         {
             healthSliderFill.color = Color.red;
             currentArmorDisp.SetActive(false);
+        }
+        else
+        {
+            healthSliderFill.color = Color.blue;
+            currentArmorDisp.SetActive(true);
         }
     }
 
@@ -121,8 +127,13 @@ public class Enemy : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        damage -= Mathf.RoundToInt(armor * 0.5f);
-        if (damage > 0)
+       
+        Debug.Log("Took " + damage + " damage");
+        if (armor > 0)
+        {
+            armor -= damage;
+        }
+        else
         {
             currentHealth -= damage;
         }
@@ -140,6 +151,7 @@ public class Enemy : MonoBehaviour
 
         armor += buffAmt;
         armor= Mathf.Clamp(armor, 0, 999);
+        ArmorCheck();
         UIManager.instance.UpdateDisplay();
     }
     public void BuffDamage( int buffAmt)
