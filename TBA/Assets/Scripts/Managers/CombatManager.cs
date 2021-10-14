@@ -85,7 +85,7 @@ public class CombatManager : MonoBehaviour
     public void SetStat(int statToBuff, int amt)
     {
         statToBuff = amt;
-        _ = Mathf.Clamp(statToBuff, 0, 999);
+        statToBuff = Mathf.Clamp(statToBuff, 0, 999);
     }
     public void BuffStat(int statToBuff,int buffAmt, Card card = null)
     {
@@ -98,7 +98,7 @@ public class CombatManager : MonoBehaviour
     public void DeBuff(int statToDebuff, int debuffAmt, Card card = null)
     {
         statToDebuff -= debuffAmt;
-        Mathf.Clamp(statToDebuff,0,999);
+        statToDebuff =  Mathf.Clamp(statToDebuff,0,999);
         DiscardCard(card);
         UIManager.instance.UpdateDisplay();
     }

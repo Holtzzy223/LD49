@@ -251,7 +251,7 @@ public class CardManager : MonoBehaviour
         DiscardAllCards();
         endTurnButton.gameObject.SetActive(false);
         currentTurn = CurrentTurn.ENEMY;
-        CombatManager.instance.currentEnemy.armor = 0;
+        //CombatManager.instance.currentEnemy.armor = 0;
         CombatManager.instance.TurnCounter++;
         StartCoroutine(EnemyManager.instance.TakeTurn(CombatManager.instance.currentEnemy));
         UpdateDisplay();

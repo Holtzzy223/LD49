@@ -139,14 +139,14 @@ public class Enemy : MonoBehaviour
     {
 
         statToBuff += buffAmt;
-        Mathf.Clamp(statToBuff, 0, 999);
+        statToBuff = Mathf.Clamp(statToBuff, 0, 999);
         UIManager.instance.UpdateDisplay();
     }
 
     public void DeBuff(int statToDebuff, int debuffAmt, Card card = null)
     {
         statToDebuff -= debuffAmt;
-        Mathf.Clamp(statToDebuff, 0, 999);
+        statToDebuff = Mathf.Clamp(statToDebuff, 0, 999);
         UIManager.instance.UpdateDisplay();
     }
 

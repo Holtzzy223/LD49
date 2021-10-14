@@ -37,10 +37,6 @@ public class EnemyManager : MonoBehaviour
     private void Start()
     {
         _CombatManInst = CombatManager.instance;
-
-
-
-
     }
 
     public void SpawnEnemy()
