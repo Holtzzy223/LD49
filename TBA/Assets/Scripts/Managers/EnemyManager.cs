@@ -98,16 +98,16 @@ public class EnemyManager : MonoBehaviour
                     CombatManager.instance.TakeDamage(enemy.damage); 
                     break;
                 case EnemyIntentType.ARMOR:
-                    enemy.BuffStat(enemy.armor, GetBuffAmount()); ;
+                    enemy.BuffArmor(GetBuffAmount());
                     break;
                 case EnemyIntentType.ABILITY:
                     //unstable shit
                     break;
                 case EnemyIntentType.BUFF:
-                    enemy.BuffStat(GetStat(enemy), GetBuffAmount());
+                    RollBuff(enemy);
                     break;
                 case EnemyIntentType.DEBUFF:
-                    enemy.DeBuff(GetStat(enemy), GetBuffAmount());
+                    enemy.DeBuff(enemy.armor, GetBuffAmount());
                     break;
                 case EnemyIntentType.FLEE:
                     GameManager.instance.ChangeState(GameState.ENDMATCH);
@@ -118,15 +118,51 @@ public class EnemyManager : MonoBehaviour
         EndTurn();
        
     }
-    private int GetStat(Enemy enemy)
+    private void RollBuff(Enemy enemy)
     {
-        int[] enemyStats = new int[] { enemy.armor, enemy.damage, enemy.maxHealth };
-        return enemyStats[Random.Range(0, enemyStats.Length)];
+        
+        int roll = -1;
+        roll = Random.Range(0,5);
+        switch (roll)
+        {
+            case 0://armor
+                enemy.BuffArmor(GetBuffAmount());
+                break;
+            case 1://health
+                enemy.Heal(GetBuffAmount());
+                break;
+            case 3://damage
+                enemy.BuffDamage(GetBuffAmount());
+                break;
+            case 4://broad?
+                BuffAllStats(enemy);
+                break;
+        }
+    }
+    IEnumerator BuffAllStats(Enemy enemy)
+    {
+        yield return new WaitForSeconds(0.5f);
+        for (int i = 0; i < 3; i++)
+        {
+            switch (i)
+            {
+                case 0:
+                    enemy.BuffArmor(GetBuffAmount());
+                    break;
+                case 1:
+                    enemy.BuffDamage(GetBuffAmount());
+                    break;
+                case 2:
+                    enemy.Heal(GetBuffAmount());
+                    break;
+            }
+            yield return new WaitForSeconds(0.25f);
+        }
     }
     private int GetBuffAmount()
     {
         int buffAmt = Random.Range(1,10);
-
+        Debug.Log("Buff Amount: " + buffAmt);
         return buffAmt;
     }
 

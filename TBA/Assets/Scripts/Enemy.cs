@@ -135,12 +135,27 @@ public class Enemy : MonoBehaviour
         HandleHealth();
     }
 
-    public void BuffStat(int statToBuff, int buffAmt, Enemy enemy = null)
+    public void BuffArmor( int buffAmt)
     {
 
-        statToBuff += buffAmt;
-        statToBuff = Mathf.Clamp(statToBuff, 0, 999);
+        armor += buffAmt;
+        armor= Mathf.Clamp(armor, 0, 999);
         UIManager.instance.UpdateDisplay();
+    }
+    public void BuffDamage( int buffAmt)
+    {
+
+        damage += buffAmt;
+        damage = Mathf.Clamp(damage, 0, 999);
+        UIManager.instance.UpdateDisplay();
+    }
+    public void BuffHealth( int buffAmt)
+    {
+
+        maxHealth += buffAmt;
+        maxHealth = Mathf.Clamp(armor, 0,9999);
+        currentHealth = maxHealth;
+        HandleHealth();
     }
 
     public void DeBuff(int statToDebuff, int debuffAmt, Card card = null)

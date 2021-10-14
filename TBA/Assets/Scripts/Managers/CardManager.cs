@@ -273,14 +273,6 @@ public class CardManager : MonoBehaviour
 
     private void DrawRewardCard()
     {
-        if (drawContainer.childCount > 0)
-        {
-            int rand = Random.Range(0, drawContainer.childCount);
-            drawContainer.GetChild(rand).transform.SetParent(handConatiner, false);
-        }
-
-
- 
-
+        // pull from pool of cards not yet in deck
     }
 }
