@@ -98,7 +98,7 @@ public class EnemyManager : MonoBehaviour
                     CombatManager.instance.TakeDamage(enemy.damage); 
                     break;
                 case EnemyIntentType.ARMOR:
-                    enemy.BuffArmor(GetBuffAmount());
+                    enemy.BuffArmor(GetBuffAmount(1,4));
                     break;
                 case EnemyIntentType.ABILITY:
                     //unstable shit
@@ -122,7 +122,8 @@ public class EnemyManager : MonoBehaviour
     {
         
         int roll = -1;
-        roll = Random.Range(0,5);
+        roll = Random.Range(0,4);
+        Debug.Log(roll);
         switch (roll)
         {
             case 0://armor
@@ -131,11 +132,12 @@ public class EnemyManager : MonoBehaviour
             case 1://health
                 enemy.Heal(GetBuffAmount());
                 break;
-            case 3://damage
+            case 2://damage
                 enemy.BuffDamage(GetBuffAmount());
                 break;
-            case 4://broad?
-                BuffAllStats(enemy);
+            case 3://broad?
+                var buffAll = BuffAllStats(enemy);
+                StartCoroutine(buffAll);
                 break;
         }
     }
@@ -159,16 +161,16 @@ public class EnemyManager : MonoBehaviour
             yield return new WaitForSeconds(0.25f);
         }
     }
-    private int GetBuffAmount()
+    private int GetBuffAmount(int min = 1,int max = 10)
     {
-        int buffAmt = Random.Range(1,10);
+        int buffAmt = Random.Range(min,max);
         Debug.Log("Buff Amount: " + buffAmt);
         return buffAmt;
     }
 
     public void EndTurn()
     {
-        //todo:remove player effects at emd of turn
+        //todo:remove player effects at emd of turn  
 
         CardManager.instance.StartNewTurn();
 
