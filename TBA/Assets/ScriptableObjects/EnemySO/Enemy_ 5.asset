@@ -16,7 +16,7 @@ MonoBehaviour:
   enemyName: Scorpy
   maxHealth: 25
   damage: 5
-  armor: 1
+  armor: 5
   enemyIntents:
   - intent: 00000000
     amt: 2

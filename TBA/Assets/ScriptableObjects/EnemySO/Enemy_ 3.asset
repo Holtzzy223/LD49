@@ -16,7 +16,7 @@ MonoBehaviour:
   enemyName: Snek
   maxHealth: 10
   damage: 2
-  armor: 1
+  armor: 0
   enemyIntents:
   - intent: 00000000
     amt: 2

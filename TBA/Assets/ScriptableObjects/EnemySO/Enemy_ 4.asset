@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyType: 1
   enemyName: Hank
-  maxHealth: 100
+  maxHealth: 50
   damage: 5
-  armor: 1
+  armor: 10
   enemyIntents:
   - intent: 00000000
     amt: 2

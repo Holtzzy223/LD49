@@ -79,7 +79,7 @@ public class CardManager : MonoBehaviour
             newCard.transform.localPosition = new Vector3(newCard.transform.localPosition.x, newCard.transform.localPosition.y, newCard.transform.localPosition.z+i);
         }
         UpdateDisplay();
-        EnemyManager.instance.SpawnEnemy();
+        EnemyManager.instance.SpawnEnemy(true);
         InitialDraw();
     }
     public void UpdateDisplay()

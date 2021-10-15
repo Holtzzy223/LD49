@@ -39,15 +39,25 @@ public class EnemyManager : MonoBehaviour
         _CombatManInst = CombatManager.instance;
     }
 
-    public void SpawnEnemy()
+    public void SpawnEnemy(bool initialSpawn = false)
     {
         int rand = Random.Range(0, enemyDictionary.Count);
         GameObject enemyToSpawn = Instantiate(enemyPrefab, spawnPostion);
         Enemy enemy = enemyToSpawn.GetComponent<Enemy>();
-        enemy.enemyData = enemyDictionary[rand];
+        EnemyData enemyToLoad = enemyDictionary[rand];
+        if (initialSpawn)
+        {
+            if (enemyToLoad.maxHealth >= 25)
+            {
+                enemyToLoad = enemyDictionary[rand];
+            }
+        } 
+        enemy.enemyData = enemyToLoad; 
         _CombatManInst.currentEnemy = enemy;
         GameManager.instance.ChangeState(GameState.COMBAT);
     }
+
+
 
     public void NextIntent(Enemy enemy)
     {

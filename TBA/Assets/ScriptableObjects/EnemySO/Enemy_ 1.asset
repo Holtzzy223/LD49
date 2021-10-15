@@ -16,12 +16,12 @@ MonoBehaviour:
   enemyName: Scorpy
   maxHealth: 25
   damage: 5
-  armor: 1
+  armor: 0
   enemyIntents:
   - intent: 00000000
     amt: 2
   - intent: 03000000
     amt: 1
-  - intent: 02000000
+  - intent: 01000000
     amt: 1
   enemyImage: {fileID: 21300000, guid: 014815fa96329cd47bdc02f6230d93af, type: 3}
