@@ -165,11 +165,11 @@ public class Card :MonoBehaviour
     }
     private void OnMouseEnter()
     {
-        transform.localScale = Vector3.Lerp(transform.localScale,new Vector3(2.5f,2.5f,2.5f),0.25f);
+        transform.localScale = Vector3.Lerp(this.transform.lossyScale,new Vector3(2.5f,2.5f,2.5f),0.25f);
         
     }
     private void OnMouseExit()
     {
-        transform.localScale = Vector3.Lerp(transform.localScale,new Vector3(1.25f, 1.25f, 1.25f),0.25f);
+        transform.localScale = Vector3.Lerp(this.transform.lossyScale,new Vector3(1f, 1f, 1f),0.15f);
     }
 }
