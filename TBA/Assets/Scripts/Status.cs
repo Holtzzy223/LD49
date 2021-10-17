@@ -26,7 +26,7 @@ public class Status : MonoBehaviour
         
     }
 
-    private void LoadEnchantmentData()
+    private void LoadStatusData()
     {
         statusName = statusData.statusName;
         statusSprite = statusData.statusSprite;

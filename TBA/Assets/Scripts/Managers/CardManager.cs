@@ -77,6 +77,20 @@ public class CardManager : MonoBehaviour
             newCard.name = newCard.GetComponent<Card>().cardData.cardName;
 
             newCard.transform.localPosition = new Vector3(newCard.transform.localPosition.x, newCard.transform.localPosition.y, newCard.transform.localPosition.z+i);
+            Transform[] cardChild = newCard.GetComponentsInChildren<Transform>();
+            for (int j = 0; j < cardChild.Length; j++)
+            {
+                if (cardChild[j].CompareTag("Card Info"))
+                {
+                    cardChild[j].GetComponentInChildren<Canvas>().enabled = false;
+                    cardChild[j].GetComponentInChildren<SpriteRenderer>().enabled = false;
+                }
+                if (cardChild[j].CompareTag("Card Back"))
+                {
+                    cardChild[j].GetComponentInChildren<SpriteRenderer>().enabled = true;
+                }
+            }
+           
         }
         UpdateDisplay();
         EnemyManager.instance.SpawnEnemy(true);
@@ -104,8 +118,9 @@ public class CardManager : MonoBehaviour
     }
     public void InitialDraw() 
     {
+      
         CombatManager.instance.currentEnemy.OnTurnEnd();
-       
+        
         currentTurn = CurrentTurn.PLAYER;
        
         endTurnButton.interactable = true;
@@ -130,8 +145,22 @@ public class CardManager : MonoBehaviour
             int rand = Random.Range(0, drawContainer.childCount);
             var card = drawContainer.GetChild(rand);
             card.SetParent(handConatiner,false);
+            
+            Transform[]  cardChilds = card.GetComponentsInChildren<Transform>();
+            Debug.Log("Car children: " + cardChilds.Length);
+            for (int i = 0; i < cardChilds.Length; i++)
+            {
+                if (cardChilds[i].CompareTag("Card Info"))
+                {
+                    cardChilds[i].GetComponentInChildren<Canvas>().enabled = true;
+                    cardChilds[i].GetComponentInChildren<SpriteRenderer>().enabled = true;
+                }
+                if (cardChilds[i].CompareTag("Card Back"))
+                {
+                    cardChilds[i].GetComponent<SpriteRenderer>().enabled = false;
+                }
+            }
             card.gameObject.GetComponent<Card>().isInHand = true;
-
         }
         else if (drawContainer.childCount<=0)
         {
@@ -223,6 +252,18 @@ public class CardManager : MonoBehaviour
             tempCard.transform.SetParent(drawContainer);
             ResetCardTransform(tempCard);
             tempCard.transform.localPosition = new Vector3(tempCard.transform.localPosition.x, tempCard.transform.localPosition.y, tempCard.transform.localPosition.z-i);
+            Transform[] tempCards = tempCard.GetComponentsInChildren<Transform>();
+            for (int j = 0; j < tempCards.Length; j++)
+            {
+                if (tempCards[j].CompareTag("Card Info"))
+                {
+                    tempCards[j].GetComponentInChildren<Canvas>().enabled = false;
+                }
+                if (tempCards[j].CompareTag("Card Back"))
+                {
+                    tempCards[j].GetComponent<SpriteRenderer>().enabled = true;
+                }
+            }
         }
         UpdateDisplay();
     }
