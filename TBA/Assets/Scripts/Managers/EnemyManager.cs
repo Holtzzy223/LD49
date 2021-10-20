@@ -104,7 +104,7 @@ public class EnemyManager : MonoBehaviour
                     CombatManager.instance.TakeDamage(enemy.damage); 
                     break;
                 case EnemyIntentType.ARMOR:
-                    enemy.BuffArmor(GetBuffAmount(1,4));
+                    enemy.BuffStat(ref enemy.armor,GetBuffAmount(1,4));
                     break;
                 case EnemyIntentType.ABILITY:
                     //unstable shit
@@ -113,7 +113,7 @@ public class EnemyManager : MonoBehaviour
                     RollBuff(enemy);
                     break;
                 case EnemyIntentType.DEBUFF:
-                    enemy.DeBuff(enemy.armor, GetBuffAmount());
+                    enemy.DeBuff(ref enemy.armor, GetBuffAmount());
                     break;
                 case EnemyIntentType.FLEE:
                     GameManager.instance.ChangeState(GameState.ENDMATCH);
@@ -124,6 +124,7 @@ public class EnemyManager : MonoBehaviour
         EndTurn();
        
     }
+
     private void RollBuff(Enemy enemy)
     {
         
@@ -133,13 +134,15 @@ public class EnemyManager : MonoBehaviour
         switch (roll)
         {
             case 0://armor
-                enemy.BuffArmor(GetBuffAmount());
+                enemy.BuffStat(ref enemy.armor, GetBuffAmount());
+                //enemy.BuffArmor(GetBuffAmount());
                 break;
             case 1://health
-                enemy.Heal(GetBuffAmount());
+                enemy.BuffStat(ref enemy.currentHealth, GetBuffAmount());
                 break;
             case 2://damage
-                enemy.BuffDamage(GetBuffAmount());
+                enemy.BuffStat(ref enemy.damage, GetBuffAmount());
+                ///enemy.BuffDamage(GetBuffAmount());
                 break;
             case 3://broad?
                 var buffAll = BuffAllStats(enemy);
@@ -155,13 +158,13 @@ public class EnemyManager : MonoBehaviour
             switch (i)
             {
                 case 0:
-                    enemy.BuffArmor(GetBuffAmount());
+                    enemy.BuffStat(ref enemy.armor, GetBuffAmount());
                     break;
                 case 1:
-                    enemy.BuffDamage(GetBuffAmount());
+                    enemy.BuffStat(ref enemy.damage, GetBuffAmount());
                     break;
                 case 2:
-                    enemy.Heal(GetBuffAmount());
+                    enemy.BuffStat(ref enemy.currentHealth, GetBuffAmount());
                     break;
             }
             yield return new WaitForSeconds(0.25f);

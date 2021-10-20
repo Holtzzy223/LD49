@@ -32,6 +32,8 @@ public class Card :MonoBehaviour
     public int armor;
     public int cardDraw;
 
+    private Vector3 oldScale;
+
     private void Start()
     {
         CollectCardData();
@@ -162,14 +164,14 @@ public class Card :MonoBehaviour
     private void OnMouseUpAsButton()
     {
         UseCard();
+        
     }
     private void OnMouseEnter()
     {
-        transform.localScale = Vector3.Lerp(this.transform.lossyScale,new Vector3(2.5f,2.5f,2.5f),0.25f);
-        
+
     }
     private void OnMouseExit()
     {
-        transform.localScale = Vector3.Lerp(this.transform.lossyScale,new Vector3(1f, 1f, 1f),0.15f);
+
     }
 }

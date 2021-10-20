@@ -271,6 +271,7 @@ public class CardManager : MonoBehaviour
     public void ResetCardTransform(Transform card)
     {
         card.localPosition = Vector3.zero;
+        
     }
 
     public bool CanUseCard(Card card)

@@ -44,7 +44,7 @@ public class Enemy : MonoBehaviour
 
 
     [SerializeField]
-    private int currentHealth;
+    public int currentHealth;
     public int CurrentHealth { get { return currentHealth; } set { currentHealth = value; } }
 
     public List<StatusType> currentStatuses = new List<StatusType>();
@@ -140,40 +140,21 @@ public class Enemy : MonoBehaviour
         HandleHealth();
     }
 
-    public void Heal(int amtToHeal)
-    {
-        currentHealth += amtToHeal;
-        HandleHealth();
-    }
 
-    public void BuffArmor( int buffAmt)
+    public void BuffStat(ref int refStat, int amtBuff) 
     {
-
-        armor += buffAmt;
-        armor= Mathf.Clamp(armor, 0, 999);
+        refStat += amtBuff;
+        refStat = Mathf.Clamp(refStat,0,999);
         ArmorCheck();
-        UIManager.instance.UpdateDisplay();
-    }
-    public void BuffDamage( int buffAmt)
-    {
-
-        damage += buffAmt;
-        damage = Mathf.Clamp(damage, 0, 999);
-        UIManager.instance.UpdateDisplay();
-    }
-    public void BuffHealth( int buffAmt)
-    {
-
-        maxHealth += buffAmt;
-        maxHealth = Mathf.Clamp(armor, 0,9999);
-        currentHealth = maxHealth;
         HandleHealth();
+        UIManager.instance.UpdateDisplay();
     }
-
-    public void DeBuff(int statToDebuff, int debuffAmt, Card card = null)
+    public void DeBuff(ref int statToDebuff, int debuffAmt)
     {
         statToDebuff -= debuffAmt;
         statToDebuff = Mathf.Clamp(statToDebuff, 0, 999);
+        ArmorCheck();
+        HandleHealth();
         UIManager.instance.UpdateDisplay();
     }
 
